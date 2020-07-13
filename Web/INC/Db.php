@@ -18,7 +18,7 @@ class Db
      */
     public function connexionBDD(){
         try {
-            $this->pdo = new PDO('mysql:host=172.17.0.4;dbname=managis', 'admin', 'yVLsgfgsQa3R4HRP');
+            $this->pdo = new PDO('mysql:host=localhost:3308;dbname=managis', 'root', '');
         }
         catch (PDOException $e){
             print_r($e);

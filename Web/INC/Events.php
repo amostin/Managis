@@ -194,7 +194,7 @@ class Events
 
             //Captcha
             $reponse = [];
-            $clePriv = "6Lf1PsQUAAAAAAlTkF4jj-uRn93zUJQ-b_LuBetz";
+            $clePriv = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
             $rep = $_POST['g-recaptcha-response'];
             $remoteIp = $_SERVER['REMOTE_ADDR'];
 
@@ -222,8 +222,8 @@ class Events
                 $this->action->ajouterAction('errorPass', 'Les deux mots de passes ne sont pas identiques');
             } //Sinon on peut effectuer l'inscription
             else {
-                $this->db->procCall('creationUser', [$_POST['pseudo'], $_POST['email'], hash('md5', $_POST['mdp'])]); //On crée le user avec les champs recupères
-                $idUser = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('md5', $_POST['mdp'])]); //On effectue la connexion de user pour qu'il soit deja connecte au moment de l'inscriptioin
+                $this->db->procCall('creationUser', [$_POST['pseudo'], $_POST['email'], hash('sha256', $_POST['mdp'])]); //On crée le user avec les champs recupères
+                $idUser = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('sha256', $_POST['mdp'])]); //On effectue la connexion de user pour qu'il soit deja connecte au moment de l'inscriptioin
                 //On memorise les valeurs recuperés de la procèdure dans la superglobale
                 $_SESSION['user'] = $idUser[0];
                 $_SESSION['user']['pseudo'] = $idUser[0]['pseudo'];
@@ -269,8 +269,8 @@ class Events
                 $this->action->ajouterAction('errorPass', 'Les deux mots de passes ne se correspondent pas');
             } //Sinon on peut effectuer l'inscription
             else {
-                $this->db->procCall('creationUser', [$_POST['pseudo'], $_POST['email'], hash('md5', $_POST['mdp'])]); //On crée le user avec les champs recupères
-                $idUser = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('md5', $_POST['mdp'])]); //On effectue la connexion de user pour qu'il soit deja connecte au moment de l'inscriptioin
+                $this->db->procCall('creationUser', [$_POST['pseudo'], $_POST['email'], hash('sha256', $_POST['mdp'])]); //On crée le user avec les champs recupères
+                $idUser = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('sha256', $_POST['mdp'])]); //On effectue la connexion de user pour qu'il soit deja connecte au moment de l'inscriptioin
                 //On memorise les valeurs recuperés de la procèdure dans la superglobale
                 $_SESSION['user'] = $idUser[0];
                 $_SESSION['user']['pseudo'] = $idUser[0]['pseudo'];
@@ -300,7 +300,7 @@ class Events
      * Gestion de la connexion
      */
     private function formConnexion(){
-       $user = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('md5', $_POST['mdp'])]); //Porcedure qui permet de se connecter appellé
+       $user = $this->db->procCall('connexionUser', [$_POST['pseudo'], hash('sha256', $_POST['mdp'])]); //Porcedure qui permet de se connecter appellé
        //Si la procèdure renvoie quelque chose
        if($user){
            //On memorise les données retournés dans la superglobale
@@ -388,13 +388,13 @@ class Events
      * Changement du mot de passe
      */
     private function formNewMdp(){
-        $verifMdp = $this->db->procCall('connexionUser', [$_SESSION['user']['pseudo'], hash('md5', $_POST['ancienMDP'])]); //On verifier si l'ancien mot de passe mis est bien celui la
+        $verifMdp = $this->db->procCall('connexionUser', [$_SESSION['user']['pseudo'], hash('sha256', $_POST['ancienMDP'])]); //On verifier si l'ancien mot de passe mis est bien celui la
         if($_POST['newMDP'] !=$_POST['confirmationMDP'] || !$verifMdp){ //Verification des donnes transmis dans le formulaire
             $this->action->ajouterAction('errorPass', "L'un des mot de passe ne correspond pas");
         }
         //On change de mot de passe pour l'utilisatur
         else {
-            $this->db->procCall('modifMdp', [$_SESSION['user']['pseudo'], hash('md5', $_POST['newMDP'])]);
+            $this->db->procCall('modifMdp', [$_SESSION['user']['pseudo'], hash('sha256', $_POST['newMDP'])]);
             $infoMembre=  $this->db->procCall('espaceMembre', [$_SESSION['user']['pseudo']]); //On appelle la procedure qui affiche les donnes du client
 
             $this->action->affichageDefaut('.intro-text', $this->lectureForm('gestionCompte'));
@@ -835,7 +835,7 @@ class Events
             $chaineNewMdp = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             $melangeChaine = str_shuffle($chaineNewMdp);
             $nouveauMdp = substr($melangeChaine, 0, 8);
-            $this->db->procCall('modifMdp', [$pseudo, hash('md5', $nouveauMdp)]);
+            $this->db->procCall('modifMdp', [$pseudo, hash('sha256', $nouveauMdp)]);
             mail($mail, 'Recuperation du mot de passe', 'Bonjour ' . $pseudo . ' voici votre nouveau mot de passe: ' . $nouveauMdp);
         }
     }
