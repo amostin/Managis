@@ -1,7 +1,7 @@
 .gestionDeCompteTitre{
      font-size : 2.5em;
      font-weight: bold;
-     color: #fed136;
+     color: #ff0000;
  }
 
 .gestionDeCompteSousTitre{
@@ -34,3 +34,9 @@
     font-weight: bold;
     color: red;
 }
+/*
+::placeholder { 
+    color: red;
+    opacity: 1; 
+  }
+  */
