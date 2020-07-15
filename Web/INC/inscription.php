@@ -13,19 +13,19 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" id="pseudo" name="pseudo" class="form-control input-sm" placeholder="Pseudo" required>
+                                    <input type="text" id="pseudo" name="pseudo" class="form-control input-sm" placeholder="Pseudo" autocomplete="on" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse Email" required>
+                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse Email" autocomplete="on" required>
                         </div>
 
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="password" id="mdp" name="mdp" class="form-control input-sm" placeholder="Mot de passe" required minlength="8">
+                                    <input type="password" id="mdp" name="mdp" class="form-control input-sm" placeholder="Mot de passe" required autocomplete="on" minlength="8">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
