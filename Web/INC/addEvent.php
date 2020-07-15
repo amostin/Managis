@@ -26,7 +26,7 @@
                  </div>
                  <div class="col-md-6">
                      <div class="form-group">
-                         <input class="form-control" id="heure" name="heure" type="time" placeholder="Heure de l'événement *" required="required">
+                         <input class="form-control" id="heure" name="heure" type="time" placeholder="Heure de l'événement *" required="required" autocomplete="on">
                          <p class="help-block text-danger"></p>
                      </div>
                  </div>
