@@ -34,3 +34,9 @@
     font-weight: bold;
     color: red;
 }
+/*
+::placeholder { 
+    color: red;
+    opacity: 1; 
+  }
+  */

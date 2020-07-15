@@ -95,12 +95,13 @@ img::-moz-selection {
 .btn-primary {
   background-color: #fed136;
   border-color: #fed136;
+  color: rgb(0, 0, 0);
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
   background-color: #fec810 !important;
   border-color: #fec810 !important;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .btn-primary:active, .btn-primary:focus {
