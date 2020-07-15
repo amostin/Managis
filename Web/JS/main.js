@@ -226,14 +226,14 @@ function gererDonnes(retour){
                     let tableNombre = '';
                         tableNombre =
                         '<tr> \n' +
-                            '<td class="taillePolice" align="center">'+actionDatas[0][0]['nombreInv']+'<a href="afficheInv.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fas fa-eye"></i></button></a></td> \n' +
-                            '<td class="taillePolice" align="center">'+actionDatas[1][0]['nombreFour']+'<a href="afficheFour.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fas fa-eye"></i></button></a></td>\n' +
-                            '<td class="taillePolice" align="center">'+actionDatas[2][0]['nombreComm']+'<a href="afficheComm.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fas fa-eye"></i></button></a></td>\n' +
-                            '<td class="taillePolice" align="center">'+actionDatas[3][0]['participant']+'<a href="afficheParticipants.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fas fa-eye"></i></button></a></td>\n' +
+                            '<td class="taillePolice" align="center">'+actionDatas[0][0]['nombreInv']+'<a href="afficheInv.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fas fa-eye"></i></button></a></td> \n' +
+                            '<td class="taillePolice" align="center">'+actionDatas[1][0]['nombreFour']+'<a href="afficheFour.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fas fa-eye"></i></button></a></td>\n' +
+                            '<td class="taillePolice" align="center">'+actionDatas[2][0]['nombreComm']+'<a href="afficheComm.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fas fa-eye"></i></button></a></td>\n' +
+                            '<td class="taillePolice" align="center">'+actionDatas[3][0]['participant']+'<a href="afficheParticipants.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fas fa-eye"></i></button></a></td>\n' +
                             '<td class="taillePolice" align="center" style="display: none" id="affichePourParticiper"> <div class="form-check">\n' +
                             '<a href="ajoutParticipant.php" class="'+actionDatas[4]+'"> <input type="checkbox" class="form-check-input" id="'+actionDatas[4]+'"></a>\n' +
-                            '<td class="taillePolice" align="center" style="display:none;" id="modifierr"><a href="modifEvent.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fas fa-pen"></i></button></a></td>\n'+ //Bouton modification
-                            '<td class="taillePolice" align="center" style="display:none;" id="supprimerr"><a href="suppEvent.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #FF8C00"><i class="fa fa-trash" aria-hidden="true"> </i></button></a></td>\n'+
+                            '<td class="taillePolice" align="center" style="display:none;" id="modifierr"><a href="modifEvent.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fas fa-pen"></i></button></a></td>\n'+ //Bouton modification
+                            '<td class="taillePolice" align="center" style="display:none;" id="supprimerr"><a href="suppEvent.php"><button type="button" class="btn btn-xs btn-primary" style="background-color: #ff0000"><i class="fa fa-trash" aria-hidden="true"> </i></button></a></td>\n'+
                             '</div></td>' +
                         '</tr>';
                     $('#infoSupp').html(tableNombre);
