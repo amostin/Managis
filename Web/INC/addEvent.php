@@ -13,7 +13,7 @@
                  </div>
                  <div class="col-md-6">
                      <div class="form-group">
-                         <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse de l'hôte *" required="required">
+                         <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse de l'hôte *" required="required" autocomplete="on">
                          *Format ville-rue-numéro
                          <p class="help-block text-danger"></p>
                      </div>
