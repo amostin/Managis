@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="password" id="confirmationMdp" name="confirmationMdp" class="form-control input-sm" placeholder="Confirmation">
+                                    <input type="password" id="confirmationMdp" name="confirmationMdp" class="form-control input-sm" placeholder="Confirmation" autocomplete="on">
                                 </div>
                             </div>
                             <input type="checkbox" required style="margin-left:5%">   Lu et accepté le <a href="CGU.php"> CGU</a>
