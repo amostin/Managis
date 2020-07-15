@@ -35,17 +35,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="ancienMDP" name="ancienMDP" type="password" placeholder="Votre ancien mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre prénom.">
+                        <input class="form-control" id="ancienMDP" name="ancienMDP" type="password" placeholder="Votre ancien mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre prénom." autocomplete="on">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="newMDP" name="newMDP" type="password" placeholder="Votre nouveau mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre adresse email.">
+                        <input class="form-control" id="newMDP" name="newMDP" type="password" placeholder="Votre nouveau mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre adresse email." autocomplete="on">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="confirmationMDP" type="password" name="confirmationMDP" placeholder="Retapez votre nouveau mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre message."></input>
+                        <input class="form-control" id="confirmationMDP" type="password" name="confirmationMDP" placeholder="Retapez votre nouveau mot de passe *" required="required" data-validation-required-message="Veuillez entrer votre message." autocomplete="on"></input>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
