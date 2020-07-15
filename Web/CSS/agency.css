@@ -22,7 +22,7 @@ a:hover {
 }
 
 .text-primary {
-  color: #fed136 !important;
+  color: #866a04 !important;
 }
 
 h1,
@@ -61,12 +61,12 @@ h6 {
 }
 
 ::-moz-selection {
-  background: #fed136;
+  background: #866a04;
   text-shadow: none;
 }
 
 ::selection {
-  background: #fed136;
+  background: #866a04;
   text-shadow: none;
 }
 
@@ -93,15 +93,14 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #fed136;
-  border-color: #fed136;
-  color: rgb(0, 0, 0);
+  background-color: #866a04;
+  border-color: #866a04;
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
   background-color: #fec810 !important;
   border-color: #fec810 !important;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .btn-primary:active, .btn-primary:focus {
@@ -117,14 +116,14 @@ img::-moz-selection {
   right: 0;
   padding: 13px;
   text-transform: uppercase;
-  color: black;
+  color: white;
   border: 0;
-  background-color: #fed136;
+  background-color: #866a04;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 #mainNav .navbar-brand {
-  color: #fed136;
+  color: #866a04;
   font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
@@ -142,7 +141,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #fed136;
+  color: #866a04;
 }
 
 @media (min-width: 992px) {
@@ -443,7 +442,7 @@ header.masthead .intro-text .intro-heading {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color: #866a04;
 }
 
 .timeline > li .timeline-image h4 {
@@ -614,7 +613,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-  border-color: #fed136;
+  border-color: #866a04;
   box-shadow: none;
 }
 
@@ -680,5 +679,5 @@ ul.social-buttons li a {
 }
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
-  background-color: #fed136;
+  background-color: #866a04;
 }
