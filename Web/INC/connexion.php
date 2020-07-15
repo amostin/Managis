@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="mdp" name="mdp" type="password" placeholder="Votre mot de passe *" required="required">
+                        <input class="form-control" id="mdp" name="mdp" type="password" placeholder="Votre mot de passe *" required="required" autocomplete="on">
                         <p class="help-block text-danger"></p>
                         <a>Mot de passe oublié ? <a href="mdpOublie.php">Cliquez-ici !</a></a>
                     </div>
