@@ -2,7 +2,7 @@
 
 <h2>ARTICLE 1 : Objet </h2>
 
-Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site [votre site] et de ses services.
+Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site managis et de ses services.
 
 Ce contrat est conclu entre :
 
@@ -30,7 +30,7 @@ Le site [nom du site] est édité par [nom et prénom du responsable], domicili�
 
 <h2>ARTICLE 3 : accès aux services</h2>
 
-L’Utilisateur du site [votre site] a accès aux services suivants :
+L’Utilisateur du site managis a accès aux services suivants :
 <ul>
     <li>Creer un evenement</li>
     <li>Participer à un evenement</li>
@@ -47,7 +47,7 @@ L'Utilisateur est responsable des risques liés à l’utilisation de son identi
 <br>
 Le mot de passe de l’Utilisateur doit rester secret. En cas de divulgation de mot de passe, l’Éditeur décline toute responsabilité.
 <br>
-L’Utilisateur assume l’entière responsabilité de l’utilisation qu’il fait des informations et contenus présents sur le site [votre site].
+L’Utilisateur assume l’entière responsabilité de l’utilisation qu’il fait des informations et contenus présents sur le site managis.
 <br>
 Tout usage du service par l'Utilisateur ayant directement ou indirectement pour conséquence des dommages doit faire l'objet d'une indemnisation au profit du site.
 <br>
@@ -72,14 +72,14 @@ Tout dysfonctionnement du serveur ou du réseau ne peut engager la responsabilit
 <br>
 De même, la responsabilité du site ne peut être engagée en cas de force majeure ou du fait imprévisible et insurmontable d'un tiers.
 <br>
-Le site [votre site] s'engage à mettre en œuvre tous les moyens nécessaires pour garantir la sécurité et la confidentialité des données. Toutefois, il n’apporte pas une garantie de sécurité totale.
+Le site managis s'engage à mettre en œuvre tous les moyens nécessaires pour garantir la sécurité et la confidentialité des données. Toutefois, il n’apporte pas une garantie de sécurité totale.
 <br>
 L’Éditeur se réserve la faculté d’une non-garantie de la fiabilité des sources, bien que les informations diffusées su le site soient réputées fiables.
 <br>
 
 <h2>ARTICLE 6 : Propriété intellectuelle</h2>
 
-Les contenus du site [votre site] (logos, textes, éléments graphiques, vidéos, etc.) son protégés par le droit d’auteur, en vertu du Code de la propriété intellectuelle.
+Les contenus du site managis (logos, textes, éléments graphiques, vidéos, etc.) son protégés par le droit d’auteur, en vertu du Code de la propriété intellectuelle.
 <br>
 L’Utilisateur devra obtenir l’autorisation de l’éditeur du site avant toute reproduction, copie ou publication de ces différents contenus.
 <br>
@@ -110,9 +110,9 @@ En vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'Utilisateu
 
 <h2>ARTICLE 8 : Liens hypertextes</h2>
 
-Les domaines vers lesquels mènent les liens hypertextes présents sur le site n’engagent pas la responsabilité de l’Éditeur de [votre site], qui n’a pas de contrôle sur ces liens.
+Les domaines vers lesquels mènent les liens hypertextes présents sur le site n’engagent pas la responsabilité de l’Éditeur de managis, qui n’a pas de contrôle sur ces liens.
 <br>
-Il est possible pour un tiers de créer un lien vers une page du site [votre site] sans autorisation expresse de l’éditeur.
+Il est possible pour un tiers de créer un lien vers une page du site managis sans autorisation expresse de l’éditeur.
 <br>
 
 <h2>ARTICLE 9 : Évolution des conditions générales d’utilisation </h2>
