@@ -15,16 +15,7 @@ Les conditions générales d'utilisation doivent être acceptées par tout Utili
 
 <h2>ARTICLE 2 : Mentions légales</h2>
 
-Pour les personnes morales :
-
-Le site managis est édité par la société [nom de la société], [statut juridique (SAS, SARL, etc.)] au capital de [montant en euros] €, dont le siège social est situé au [adresse du siège social].
-
-La société est représentée par [nom et prénom du responsable].
-
-
-Pour les personnes physiques :
-
-Le site managis est édité par [nom et prénom du responsable], domicilié au [adresse postale].
+Le site managis est édité par un groupe de développeur constitué de Ambroise Mostin, dom, adri, rémy, nico, max et ibra , étudiant à l'EPHEC de Louvain La Neuve.
 
 
 
@@ -53,7 +44,7 @@ Tout usage du service par l'Utilisateur ayant directement ou indirectement pour 
 <br>
 Le site permet aux membres de publier sur le site :
 <ul>
-    <li>[Commentaires] ;</li>
+    <li>Commentaires ;</li>
     <li>Fournitures ;</li>
     <li>Etc.</li>
 </ul>
@@ -94,7 +85,7 @@ L’Éditeur du site se réserve le droit de modérer ou de supprimer librement 
 
 L’Utilisateur doit obligatoirement fournir des informations personnelles pour procéder à son inscription sur le site.
 <br>
-L’adresse électronique (e-mail) de l’utilisateur pourra notamment être utilisée par le site [nom de votre site] pour la communication d’informations diverses et la gestion du compte.
+L’adresse électronique (e-mail) de l’utilisateur pourra notamment être utilisée par le site managis pour la communication d’informations diverses et la gestion du compte.
 <br>
 Managis garantie le respect de la vie privée de l’utilisateur, conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés.
 <br>
