@@ -17,14 +17,14 @@ Les conditions générales d'utilisation doivent être acceptées par tout Utili
 
 Pour les personnes morales :
 
-Le site [nom du site] est édité par la société [nom de la société], [statut juridique (SAS, SARL, etc.)] au capital de [montant en euros] €, dont le siège social est situé au [adresse du siège social].
+Le site managis est édité par la société [nom de la société], [statut juridique (SAS, SARL, etc.)] au capital de [montant en euros] €, dont le siège social est situé au [adresse du siège social].
 
 La société est représentée par [nom et prénom du responsable].
 
 
 Pour les personnes physiques :
 
-Le site [nom du site] est édité par [nom et prénom du responsable], domicilié au [adresse postale].
+Le site managis est édité par [nom et prénom du responsable], domicilié au [adresse postale].
 
 
 
