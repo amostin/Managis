@@ -1,3 +1,5 @@
+
+
 <h2>ARTICLE 1 : Objet </h2>
 
 Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site [votre site] et de ses services.
@@ -122,3 +124,6 @@ Le site Managis se réserve le droit de modifier les clauses de ces conditions g
 
 La durée du présent contrat est indéterminée. Le contrat produit ses effets à l'égard de l'Utilisateur à compter du début de l’utilisation du service.
 
+<h2>ARTICLE 11 : Déclaration des cookies</h2>
+
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/04c00e12-09da-468b-88ed-cd50eb0ad319/cd.js" type="text/javascript" async></script>
