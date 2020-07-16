@@ -228,3 +228,9 @@ tbody.scrollContent tr.alternateRow td {
     -o-background-size: cover;
     background-size: cover;
 }
+/*
+::placeholder { 
+    color: red;
+    opacity: 1; 
+  }
+  */

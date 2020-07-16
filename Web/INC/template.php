@@ -431,11 +431,11 @@ $difSection = '<div id="difSection">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" placeholder="Votre nom *" required="required" data-validation-required-message="Veuillez entrer votre prénom.">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="Votre nom *" required="required" data-validation-required-message="Veuillez entrer votre prénom." autocomplete="on">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" placeholder="Votre email *" required="required" data-validation-required-message="Veuillez entrer votre adresse email.">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Votre email *" required="required" data-validation-required-message="Veuillez entrer votre adresse email." autocomplete="on">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
