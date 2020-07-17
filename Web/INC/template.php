@@ -2,55 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <META NAME="TITLE" CONTENT="Managis, l'outil de préparation d'événements et de gestion des restes">
-    <META NAME="AUTHOR" CONTENT="Ambroise Mostin">
-    <META NAME="DESCRIPTION" CONTENT="Managis est un outil qui facilite l'organisation d'événements en permettant d'ajouter le lieu, la date, les invités et plus. Les participants peuvent également aider à l'organisation. Il est possible de lutter contre le gaspillage en mettant en ligne des articles non consommé ou inutilisés">
-    <META NAME="KEYWORDS" CONTENT="outil, facilite , preparation , organisation, gestion, logistique , evenement, soirée, privees, publique, anniversaire, vacances, congé, séjour, réunion, auberge espagnole, open air, barbecue, rencontre, fête, festival, concert, spectacle, repas, rendez-vous, festivité, convention, sortie, excursion, visite, voyage, en groupe, ensemble, partager, lieu, date, invité, participant, fournitures, utile, commenter, être informé, synchroniser,  anti gaspillage, gaspillage, restes, inutilisé, pas consommé, donner, vendre, donner ses restes, vendre ses restes, échange, lutte contre gaspillage, amitié, humanité, odd, objectif développement durable, articles, non consommé">
-    <META NAME="OWNER" CONTENT="Ambroise Mostin">
-    <META NAME="ROBOTS" CONTENT="index,all">
-    <META NAME="Reply-to" CONTENT="contact@ambroisemostin.com">
-    <META NAME="REVISIT-AFTER" CONTENT="15">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <META NAME="TITLE" CONTENT="Managis, l'outil de préparation d'événements et de gestion des restes">
+  <META NAME="AUTHOR" CONTENT="Ambroise Mostin">
+  <META NAME="DESCRIPTION" CONTENT="Managis est un outil qui facilite l'organisation d'événements en permettant d'ajouter le lieu, la date, les invités et plus. Les participants peuvent également aider à l'organisation. Il est possible de lutter contre le gaspillage en mettant en ligne des articles non consommé ou inutilisés">
+  <META NAME="KEYWORDS" CONTENT="outil, facilite , preparation , organisation, gestion, logistique , evenement, soirée, privees, publique, anniversaire, vacances, congé, séjour, réunion, auberge espagnole, open air, barbecue, rencontre, fête, festival, concert, spectacle, repas, rendez-vous, festivité, convention, sortie, excursion, visite, voyage, en groupe, ensemble, partager, lieu, date, invité, participant, fournitures, utile, commenter, être informé, synchroniser,  anti gaspillage, gaspillage, restes, inutilisé, pas consommé, donner, vendre, donner ses restes, vendre ses restes, échange, lutte contre gaspillage, amitié, humanité, odd, objectif développement durable, articles, non consommé">
+  <META NAME="OWNER" CONTENT="Ambroise Mostin">
+  <META NAME="ROBOTS" CONTENT="index,all">
+  <META NAME="Reply-to" CONTENT="contact@ambroisemostin.com">
+  <META NAME="REVISIT-AFTER" CONTENT="15">
 
-    <title>MANAGIS</title>
+  <title>MANAGIS</title>
 
-    <!-- CookieBot -->
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="04c00e12-09da-468b-88ed-cd50eb0ad319" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- CookieBot -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="04c00e12-09da-468b-88ed-cd50eb0ad319" data-blockingmode="auto" type="text/javascript"></script>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Nous chargeons les fichiers CDN de Leaflet. Le CSS AVANT le JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+  <style type="text/css">
+    #map {
+      /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+      height: 400px;
+    }
+  </style>
 
-    <!-- Bootstrap core CSS -->
-    <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-    <!-- Material Design Bootstrap -->
-    <!--<link href="CSS/mdb.min.css" rel="stylesheet">-->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-    <!-- Your custom styles (optional) -->
-    <link href="CSS/style2.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+  <!-- Material Design Bootstrap -->
+  <!--<link href="CSS/mdb.min.css" rel="stylesheet">-->
+
+  <!-- Your custom styles (optional) -->
+  <link href="CSS/style2.css" rel="stylesheet">
 
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href="CSS/agency.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="IMG/favicon.png" />
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="CSS/agency.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="IMG/favicon.png" />
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
-    <link rel="stylesheet" href="vendor/jquery/jquery-ui.css">
-    <script src="vendor/jquery/jquery-1.12.4.js"></script>
-    <script src="vendor/jquery/jquery-ui.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="JS/popper.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="JS/mdb.min.js"></script>
-    <script type="text/javascript" src="JS/main.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
+  <link rel="stylesheet" href="vendor/jquery/jquery-ui.css">
+  <script src="vendor/jquery/jquery-1.12.4.js"></script>
+  <script src="vendor/jquery/jquery-ui.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="JS/popper.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="JS/mdb.min.js"></script>
+  <script type="text/javascript" src="JS/main.js"></script>
 
 
 
@@ -68,33 +77,33 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-            <?php
-            $services =
-                '<li class="nav-item">
+          <?php
+          $services =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Services</a>
           </li>';
-            $quiSommesNous =
-                '<li class="nav-item">
+          $quiSommesNous =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#team">L\'équipe</a>
           </li>';
-            $connexion =
-                '<li class="nav-item">
+          $connexion =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" id="connexion" href="connexion.php">Connexion</a>
-          </li>' ;
-            $aProposDeNous =
-                '<li class="nav-item">
+          </li>';
+          $aProposDeNous =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">A propos de nous</a>
           </li>';
-            $contact =
-                '<li class="nav-item">
+          $contact =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>';
-            $telechargement =
-                '<li class="nav-item">
+          $telechargement =
+            '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="downloadAppli.php">Telecharger notre application</a>
           </li>';
-            $vosEvenements =
-                '<li class="nav-item dropdown">
+          $vosEvenements =
+            '<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span class="glyphicon glyphicon-calendar"></span> Gestion des événements
                             </a>
@@ -102,18 +111,17 @@
                             <a class="dropdown-item" href="addEvent.php">CREER VOTRE EVENEMENT</a>
                               <a class="dropdown-item" href="vosEvenements.php">EVENEMENTS A VENIR</a>
                               <a class="dropdown-item" href="historiqueEvents.php">HISTORIQUE DE VOS EVENEMENTS</a>
-                              <a class="dropdown-item" href="historiqueEvents.php">VOIR TOUTES LES ADRESSES</a>
+                              <a class="dropdown-item" href="adresses.php">VOIR TOUTES LES ADRESSES</a>
                             </div>
                 </li>';
-            if (!empty($_SESSION['user'])) {
-                $espaceMembre = str_replace("<a class=\"nav-link js-scroll-trigger\" id=\"connexion\" href=\"connexion.php\">Connexion</a>", "<a href=\"espaceMembre.php\" id=\"espaceMembre\" class=\"nav-link js-scroll-trigger\">Gestion de  compte</a>", $connexion);
-                $deconnexion= str_replace("<a class=\"nav-link js-scroll-trigger\" href=\"#team\">L'équipe</a>", "<a href=\"deconnexion.php\" id=\"deconnexion\" class=\"nav-link js-scroll-trigger\"> Déconnexion</a>", $quiSommesNous);
-                echo $vosEvenements  . $espaceMembre . $deconnexion;
-            }
-            else {
-                echo $services . $aProposDeNous . $quiSommesNous . $contact . $telechargement . $connexion;
-            }
-            ?>
+          if (!empty($_SESSION['user'])) {
+            $espaceMembre = str_replace("<a class=\"nav-link js-scroll-trigger\" id=\"connexion\" href=\"connexion.php\">Connexion</a>", "<a href=\"espaceMembre.php\" id=\"espaceMembre\" class=\"nav-link js-scroll-trigger\">Gestion de  compte</a>", $connexion);
+            $deconnexion = str_replace("<a class=\"nav-link js-scroll-trigger\" href=\"#team\">L'équipe</a>", "<a href=\"deconnexion.php\" id=\"deconnexion\" class=\"nav-link js-scroll-trigger\"> Déconnexion</a>", $quiSommesNous);
+            echo $vosEvenements  . $espaceMembre . $deconnexion;
+          } else {
+            echo $services . $aProposDeNous . $quiSommesNous . $contact . $telechargement . $connexion;
+          }
+          ?>
 
         </ul>
       </div>
@@ -126,25 +134,24 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-          <div class="intro-lead-in">Bienvenue sur Managis</div>
-          <div class="intro-heading text-uppercase">Organisez au mieux vos événements! </div>
-          <?php
-          $commencez =  '<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Commencez dès maintenant !</a>';
-            if(!empty($_SESSION['user'])) {
-                echo '<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="addEvent.php">Commencez dès maintenant !</a>';
-            }
-            else {
-                echo $commencez;
-            }
-          ?>
+        <div class="intro-lead-in">Bienvenue sur Managis</div>
+        <div class="intro-heading text-uppercase">Organisez au mieux vos événements! </div>
+        <?php
+        $commencez =  '<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Commencez dès maintenant !</a>';
+        if (!empty($_SESSION['user'])) {
+          echo '<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="addEvent.php">Commencez dès maintenant !</a>';
+        } else {
+          echo $commencez;
+        }
+        ?>
       </div>
     </div>
   </header>
-<div id="popUp"></div>
-<div id="cgu-priv"></div>
-<?php
+  <div id="popUp"></div>
+  <div id="cgu-priv"></div>
+  <?php
 
-$difSection = '<div id="difSection">
+  $difSection = '<div id="difSection">
   <!-- Services -->
   <section class="bg-white page-section" id="services">
     <div class="container">
@@ -467,8 +474,8 @@ $difSection = '<div id="difSection">
     </div>
   </section>
 </div>';
-    if(empty($_SESSION['user'])) echo $difSection;
-?>
+  if (empty($_SESSION['user'])) echo $difSection;
+  ?>
 
   <!-- Footer -->
   <footer class="footer">
@@ -526,8 +533,8 @@ $difSection = '<div id="difSection">
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted"></p>
                 <img class="img-fluid d-block mx-auto" src="IMG/portfolio/01-full.jpg" alt="">
-                  <p></p>
-                  <ul class="list-inline">
+                <p></p>
+                <ul class="list-inline">
                   <li>Date: January 2017</li>
                   <li>Client: Threads</li>
                   <li>Category: Illustration</li>
@@ -594,8 +601,8 @@ $difSection = '<div id="difSection">
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted"></p>
                 <img class="img-fluid d-block mx-auto" src="IMG/portfolio/03-full.jpg" alt="">
-                 <p></p>
-                  <ul class="list-inline">
+                <p></p>
+                <ul class="list-inline">
                   <li>Date: January 2017</li>
                   <li>Client: Finish</li>
                   <li>Category: Identity</li>
@@ -723,6 +730,9 @@ $difSection = '<div id="difSection">
 
   <!-- Custom scripts for this template -->
   <script src="JS/agency.min.js"></script>
+
+
+  
 
 </body>
 

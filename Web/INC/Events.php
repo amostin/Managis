@@ -12,6 +12,7 @@ class Events
     private $db = null;
     private $session = null;
     private $rqList = [ //Liste des requetes qu'on peut effectuer sur le serveur
+        'adresses',
         'validation',
         'inscription',
         'CGU',
@@ -94,6 +95,13 @@ class Events
     public function lectureForm($nomForm){
         $nomFichier = 'INC/'.$nomForm.'.php';
         return implode("\n", file($nomFichier));
+    }
+
+    /**
+     * Renvoie la page de adresse
+     */
+    private function adresses(){
+        $this->action->affichageDefaut('.intro-text', $this->lectureForm('adresses'));
     }
 
 
@@ -329,7 +337,7 @@ class Events
                     <a class="dropdown-item" href="addEvent.php">CREER VOTRE EVENEMENT</a>
                     <a class="dropdown-item" href="vosEvenements.php">EVENEMENTS A VENIR</a>
                     <a class="dropdown-item" href="historiqueEvents.php">HISTORIQUE DE VOS EVENEMENTS</a>
-                    <a class="dropdown-item" href="historiqueEvents.php">VOIR TOUTES LES ADRESSES</a>
+                    <a class="dropdown-item" href="adresses.php">VOIR TOUTES LES ADRESSES</a>
                 </div>
                 </li>';
         $gestionCompte =
