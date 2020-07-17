@@ -4,8 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <META NAME="TITLE" CONTENT="Managis, l'outil de préparation d'événements et de gestion des restes">
+    <META NAME="AUTHOR" CONTENT="Ambroise Mostin">
+    <META NAME="DESCRIPTION" CONTENT="Managis est un outil qui facilite l'organisation d'événements en permettant d'ajouter le lieu, la date, les invités et plus. Les participants peuvent également aider à l'organisation. Il est possible de lutter contre le gaspillage en mettant en ligne des articles non consommé ou inutilisés">
+    <META NAME="KEYWORDS" CONTENT="outil, facilite , preparation , organisation, gestion, logistique , evenement, soirée, privees, publique, anniversaire, vacances, congé, séjour, réunion, auberge espagnole, open air, barbecue, rencontre, fête, festival, concert, spectacle, repas, rendez-vous, festivité, convention, sortie, excursion, visite, voyage, en groupe, ensemble, partager, lieu, date, invité, participant, fournitures, utile, commenter, être informé, synchroniser,  anti gaspillage, gaspillage, restes, inutilisé, pas consommé, donner, vendre, donner ses restes, vendre ses restes, échange, lutte contre gaspillage, amitié, humanité, odd, objectif développement durable, articles, non consommé">
+    <META NAME="OWNER" CONTENT="Ambroise Mostin">
+    <META NAME="ROBOTS" CONTENT="index,all">
+    <META NAME="Reply-to" CONTENT="contact@ambroisemostin.com">
+    <META NAME="REVISIT-AFTER" CONTENT="15">
 
     <title>MANAGIS</title>
 
