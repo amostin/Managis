@@ -102,6 +102,11 @@ class Events
      */
     private function adresses(){
         $this->action->affichageDefaut('.intro-text', $this->lectureForm('adresses'));
+        //procall
+        //ajoutaction
+
+        $vosEventFutur = $this->db->procCall('vosEventFutur', [$_SESSION['user']['pseudo']]); //Appelle la procedure juste avec les evenements du user
+        $this->action->ajouterAction('adresses', $vosEventFutur);
     }
 
 
