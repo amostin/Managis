@@ -66,7 +66,8 @@ function gererDonnes(retour) {
                             maxZoom: 20
                         }).addTo(macarte);
                         var marker = L.marker([latitude, longitude]).addTo(macarte);
-                        marker.bindPopup(actionDatas[0]['adresse']);
+                        marker.bindPopup("ma position");
+                        //marker.bindPopup(actionDatas[0]['adresse']);
                     }
                     function showError(error) {
                         switch (error.code) {
@@ -81,7 +82,8 @@ function gererDonnes(retour) {
                                     maxZoom: 20
                                 }).addTo(macarte);
                                 var marker = L.marker([lat, lon]).addTo(macarte);
-                                marker.bindPopup(actionDatas[0]['adresse']);
+                                //marker.bindPopup(actionDatas[0]['adresse']);
+                                marker.bindPopup("Centre de bruxelles");
                                 break;
                             case error.POSITION_UNAVAILABLE:
                                 console.log("Location information is unavailable.")
