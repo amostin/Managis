@@ -102,6 +102,7 @@
                             <a class="dropdown-item" href="addEvent.php">CREER VOTRE EVENEMENT</a>
                               <a class="dropdown-item" href="vosEvenements.php">EVENEMENTS A VENIR</a>
                               <a class="dropdown-item" href="historiqueEvents.php">HISTORIQUE DE VOS EVENEMENTS</a>
+                              <a class="dropdown-item" href="historiqueEvents.php">VOIR TOUTES LES ADRESSES</a>
                             </div>
                 </li>';
             if (!empty($_SESSION['user'])) {
