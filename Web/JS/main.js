@@ -47,26 +47,56 @@ function gererDonnes(retour) {
                     break;
 
                 case 'adresses':
-                    // On initialise la latitude et la longitude de Paris (centre de la carte)
-                    var lat = 50.8466;
-                    var lon = 4.3528;
-                    var macarte = null;
-                    // Fonction d'initialisation de la carte
 
-                    console.log(lat);
-                    // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-                    macarte = L.map('map').setView([lat, lon], 11);
-                    // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-                    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                        // Il est toujours bien de laisser le lien vers la source des données
-                        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-                        minZoom: 1,
-                        maxZoom: 20
-                    }).addTo(macarte);
-                    // Nous ajoutons un marqueur
-                    var marker = L.marker([lat, lon]).addTo(macarte);
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition, showError);
+                    } else {
+                        console.log("Geolocation is not supported by this browser.");
+                    }
 
-
+                    function showPosition(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        console.log('lat: ' + latitude + ', lon: ' + longitude);
+                        var macarte = null;
+                        macarte = L.map('map').setView([latitude, longitude], 11);
+                        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                            minZoom: 1,
+                            maxZoom: 20
+                        }).addTo(macarte);
+                        var marker = L.marker([latitude, longitude]).addTo(macarte);
+                        marker.bindPopup(actionDatas[0]['adresse']);
+                    }
+                    function showError(error) {
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                var lat = 50.8466;
+                                var lon = 4.3528;
+                                var macarte = null;
+                                macarte = L.map('map').setView([lat, lon], 11);
+                                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                                    minZoom: 1,
+                                    maxZoom: 20
+                                }).addTo(macarte);
+                                var marker = L.marker([lat, lon]).addTo(macarte);
+                                marker.bindPopup(actionDatas[0]['adresse']);
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                console.log("Location information is unavailable.")
+                                break;
+                            case error.TIMEOUT:
+                                console.log("The request to get user location timed out.")
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                console.log("An unknown error occurred.")
+                                break;
+                        }
+                    }
+                    /*
+                
+                */
                     console.log(actionDatas);
                     break;
 

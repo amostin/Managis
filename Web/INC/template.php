@@ -1,6 +1,4 @@
-<?php
-echo(var_dump($vosEventFutur));
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
