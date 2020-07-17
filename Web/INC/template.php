@@ -9,6 +9,9 @@
 
     <title>MANAGIS</title>
 
+    <!-- CookieBot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="04c00e12-09da-468b-88ed-cd50eb0ad319" data-blockingmode="auto" type="text/javascript"></script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
