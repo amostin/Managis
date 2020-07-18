@@ -67,6 +67,25 @@ function gererDonnes(retour) {
                         }).addTo(macarte);
                         var marker = L.marker([latitude, longitude]).addTo(macarte);
                         marker.bindPopup("ma position");
+                        for (let j = 0; j < actionDatas.length; j++) {
+                            var adresseBdd = actionDatas[j]['adresse'];
+                            var adresseTab = adresseBdd.split(" ");
+                            var adresseString = "";
+                            for (let i = 1; i < adresseTab.length; i++) {
+                                adresseString += adresseTab[i] + "+";
+                            }
+                            $.ajax({
+                                url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                            }).done(function (data) {
+                                //console.log(JSON.parse(data));
+                                console.log(data[0]['lat']);
+    
+                                var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                //marker.bindPopup(actionDatas[0]['adresse']);
+                                marker.bindPopup(data[0]['display_name']);
+    
+                            });
+                        }
                         //marker.bindPopup(actionDatas[0]['adresse']);
                     }
                     function showError(error) {
@@ -84,6 +103,21 @@ function gererDonnes(retour) {
                                 var marker = L.marker([lat, lon]).addTo(macarte);
                                 //marker.bindPopup(actionDatas[0]['adresse']);
                                 marker.bindPopup("Centre de bruxelles");
+                                for (let j = 0; j < actionDatas.length; j++) {
+                                    var adresseBdd = actionDatas[j]['adresse'];
+                                    var adresseTab = adresseBdd.split(" ");
+                                    var adresseString = "";
+                                    for (let i = 1; i < adresseTab.length; i++) {
+                                        adresseString += adresseTab[i] + "+";
+                                    }
+                                    $.ajax({
+                                        url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                                    }).done(function (data) {
+                                        console.log(data);
+                                        var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                        marker.bindPopup(data[0]['display_name']);
+                                    });
+                                }
                                 break;
                             case error.POSITION_UNAVAILABLE:
                                 console.log("Location information is unavailable.")
@@ -97,31 +131,17 @@ function gererDonnes(retour) {
                         }
                     }
                     console.log(actionDatas);
-                    
+
                     //var numero = 38;
                     //var rue = 'avenue+maerckaert';
 
-                    for(let j = 0; j<actionDatas.length;j++){
-                        var adresseBdd = actionDatas[j]['adresse'];
-                        var adresseTab = adresseBdd.split(" ");
-                        var adresseString = "";
-                        for(let i=1; i<adresseTab.length; i++){
-                            adresseString += adresseTab[i] + "+";
-                        }
-                        $.ajax({
-                            url: 'https://nominatim.openstreetmap.org/?addressdetails='+adresseTab[0]+'&q='+adresseString+'&format=json&limit=1'
-                        }).done(function (data) {
-                            //console.log(JSON.parse(data));
-                            console.log(data);
-                        });
-                    }
 
-                    
-                    
+
+
                     break;
 
-                case 'adressesEvent': 
-                    
+                case 'adressesEvent':
+
                     break;
 
                 case 'deconnexion': //Gestion de la deconnexion
