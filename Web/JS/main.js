@@ -96,25 +96,27 @@ function gererDonnes(retour) {
                                 break;
                         }
                     }
-                    console.log(actionDatas[0]['adresse']);
+                    console.log(actionDatas);
                     
                     //var numero = 38;
                     //var rue = 'avenue+maerckaert';
 
-                    var adresseBdd = actionDatas[0]['adresse'];
-                    var adresseTab = adresseBdd.split(" ");
-                    var adresseString = "";
-                    for(let i=1; i<adresseTab.length; i++){
-                        adresseString += adresseTab[i] + "+";
+                    for(let j = 0; j<actionDatas.length;j++){
+                        var adresseBdd = actionDatas[j]['adresse'];
+                        var adresseTab = adresseBdd.split(" ");
+                        var adresseString = "";
+                        for(let i=1; i<adresseTab.length; i++){
+                            adresseString += adresseTab[i] + "+";
+                        }
+                        $.ajax({
+                            url: 'https://nominatim.openstreetmap.org/?addressdetails='+adresseTab[0]+'&q='+adresseString+'&format=json&limit=1'
+                        }).done(function (data) {
+                            //console.log(JSON.parse(data));
+                            console.log(data);
+                        });
                     }
-                    
 
-                    $.ajax({
-                        url: 'https://nominatim.openstreetmap.org/?addressdetails='+adresseTab[0]+'&q='+adresseString+'&format=json&limit=1'
-                    }).done(function (data) {
-                        //console.log(JSON.parse(data));
-                        console.log(data);
-                    });
+                    
                     
                     break;
 
