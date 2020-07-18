@@ -107,15 +107,12 @@ class Events
     private function calendrier()
     {
         $this->action->affichageDefaut('.intro-text', $this->lectureForm('calendrier')); //lis la div du fichier php qui sera rempli garce au case adresse dans mainjs appelé via action
-        /*
         $vosEventFutur = $this->db->procCall('vosEventFutur', [$_SESSION['user']['pseudo']]); //Appelle la procedure juste avec les evenements du user
         $vosEventPasse = $this->db->procCall('vosEventPasse', [$_SESSION['user']['pseudo']]);
         $vosInvitFutur = $this->db->procCall('vosInvitFutur', [$_SESSION['user']['idUser'], $_SESSION['user']['pseudo']]);
         $vosInvitPasse = $this->db->procCall('vosInvitPasse', [$_SESSION['user']['idUser'], $_SESSION['user']['pseudo']]);
-        $adresses = [$vosEventFutur, $vosEventPasse, $vosInvitFutur, $vosInvitPasse];
-        $this->action->ajouterAction('adresses', $adresses);
-        //$this->action->ajouterAction('adressesEvent', $apiResult);
-        */
+        $calendrier = [$vosEventFutur, $vosEventPasse, $vosInvitFutur, $vosInvitPasse];
+        $this->action->ajouterAction('calendrier', $calendrier);
     }
 
     /**

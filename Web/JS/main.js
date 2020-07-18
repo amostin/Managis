@@ -46,6 +46,11 @@ function gererDonnes(retour) {
                     evenements(dest);
                     break;
 
+
+                case 'calendrier':
+                    console.log(actionDatas);
+                    break;
+
                 case 'adresses':
                     console.log(actionDatas);
                     if (navigator.geolocation) {
@@ -138,10 +143,6 @@ function gererDonnes(retour) {
                         }
                     }
                     console.log(actionDatas);
-                    break;
-
-                case 'adressesEvent':
-
                     break;
 
                 case 'deconnexion': //Gestion de la deconnexion
