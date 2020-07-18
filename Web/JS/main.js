@@ -66,24 +66,28 @@ function gererDonnes(retour) {
                             maxZoom: 20
                         }).addTo(macarte);
                         var marker = L.marker([latitude, longitude]).addTo(macarte);
-                        marker.setOpacity(0.8);
+                        marker.setOpacity(0.7);
                         marker.bindPopup("ma position");
-                        for (let j = 0; j < actionDatas.length; j++) {
-                            var adresseBdd = actionDatas[j]['adresse'];
-                            var adresseTab = adresseBdd.split(" ");
-                            var adresseString = "";
-                            for (let i = 1; i < adresseTab.length; i++) {
-                                adresseString += adresseTab[i] + "+";
+
+                        //création de marqueur pour eventFutur (actionDatas[0]) et eventPassé (actionDatas[1])
+                        for (let k = 0; k < actionDatas.length; k++) {
+                            for (let j = 0; j < actionDatas[k].length; j++) {
+                                var adresseBdd = actionDatas[k][j]['adresse'];
+                                var adresseTab = adresseBdd.split(" ");
+                                var adresseString = "";
+                                for (let i = 1; i < adresseTab.length; i++) {
+                                    adresseString += adresseTab[i] + "+";
+                                }
+                                $.ajax({
+                                    async: false,
+                                    url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                                }).done(function (data) {
+                                    var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                    if (k == 1) marker.setOpacity(0.4);
+                                    marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
+                                });
                             }
-                            $.ajax({
-                                async: false,
-                                url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
-                            }).done(function (data) {
-                                var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
-                            });
                         }
-                        //marker.bindPopup(actionDatas[0]['adresse']);
                     }
                     function showError(error) {
                         switch (error.code) {
@@ -98,23 +102,29 @@ function gererDonnes(retour) {
                                     maxZoom: 20
                                 }).addTo(macarte);
                                 var marker = L.marker([lat, lon]).addTo(macarte);
+                                marker.setOpacity(0.8);
                                 marker.bindPopup("Centre de bruxelles");
-                                for (let j = 0; j < actionDatas.length; j++) {
-                                    var adresseBdd = actionDatas[j]['adresse'];
-                                    var adresseTab = adresseBdd.split(" ");
-                                    var adresseString = "";
-                                    for (let i = 1; i < adresseTab.length; i++) {
-                                        adresseString += adresseTab[i] + "+";
+
+                                //création de marqueur pour eventFutur (actionDatas[0]) et eventPassé (actionDatas[1])
+                                for (let k = 0; k < actionDatas.length; k++) {
+                                    for (let j = 0; j < actionDatas[k].length; j++) {
+                                        var adresseBdd = actionDatas[k][j]['adresse'];
+                                        var adresseTab = adresseBdd.split(" ");
+                                        var adresseString = "";
+                                        for (let i = 1; i < adresseTab.length; i++) {
+                                            adresseString += adresseTab[i] + "+";
+                                        }
+                                        $.ajax({
+                                            async: false,
+                                            url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                                        }).done(function (data) {
+                                            var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                            if (k == 1) marker.setOpacity(0.4);
+                                            marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
+                                        });
                                     }
-                                    $.ajax({
-                                        async: false,
-                                        url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
-                                    }).done(function (data) {
-                                        console.log(data);
-                                        var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                        marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
-                                    });
                                 }
+
                                 break;
                             case error.POSITION_UNAVAILABLE:
                                 console.log("Location information is unavailable.")
