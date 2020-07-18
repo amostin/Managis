@@ -83,7 +83,7 @@ function gererDonnes(retour) {
                                     url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
                                 }).done(function (data) {
                                     var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                    if (k == 1) marker.setOpacity(0.4);
+                                    if (k == 1 || k == 3) marker.setOpacity(0.4);
                                     marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
                                 });
                             }
@@ -119,7 +119,7 @@ function gererDonnes(retour) {
                                             url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
                                         }).done(function (data) {
                                             var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                            if (k == 1) marker.setOpacity(0.4);
+                                            if (k == 1 || k == 3) marker.setOpacity(0.4);
                                             marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
                                         });
                                     }
