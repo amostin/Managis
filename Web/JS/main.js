@@ -47,7 +47,7 @@ function gererDonnes(retour) {
                     break;
 
                 case 'adresses':
-
+                    console.log(actionDatas);
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition, showError);
                     } else {
@@ -66,8 +66,28 @@ function gererDonnes(retour) {
                             maxZoom: 20
                         }).addTo(macarte);
                         var marker = L.marker([latitude, longitude]).addTo(macarte);
+                        marker.setOpacity(0.7);
                         marker.bindPopup("ma position");
-                        //marker.bindPopup(actionDatas[0]['adresse']);
+
+                        //création de marqueur pour eventFutur (actionDatas[0]) et eventPassé (actionDatas[1])
+                        for (let k = 0; k < actionDatas.length; k++) {
+                            for (let j = 0; j < actionDatas[k].length; j++) {
+                                var adresseBdd = actionDatas[k][j]['adresse'];
+                                var adresseTab = adresseBdd.split(" ");
+                                var adresseString = "";
+                                for (let i = 1; i < adresseTab.length; i++) {
+                                    adresseString += adresseTab[i] + "+";
+                                }
+                                $.ajax({
+                                    async: false,
+                                    url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                                }).done(function (data) {
+                                    var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                    if (k == 1 || k == 3) marker.setOpacity(0.4);
+                                    marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
+                                });
+                            }
+                        }
                     }
                     function showError(error) {
                         switch (error.code) {
@@ -82,8 +102,29 @@ function gererDonnes(retour) {
                                     maxZoom: 20
                                 }).addTo(macarte);
                                 var marker = L.marker([lat, lon]).addTo(macarte);
-                                //marker.bindPopup(actionDatas[0]['adresse']);
+                                marker.setOpacity(0.8);
                                 marker.bindPopup("Centre de bruxelles");
+
+                                //création de marqueur pour eventFutur (actionDatas[0]) et eventPassé (actionDatas[1])
+                                for (let k = 0; k < actionDatas.length; k++) {
+                                    for (let j = 0; j < actionDatas[k].length; j++) {
+                                        var adresseBdd = actionDatas[k][j]['adresse'];
+                                        var adresseTab = adresseBdd.split(" ");
+                                        var adresseString = "";
+                                        for (let i = 1; i < adresseTab.length; i++) {
+                                            adresseString += adresseTab[i] + "+";
+                                        }
+                                        $.ajax({
+                                            async: false,
+                                            url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
+                                        }).done(function (data) {
+                                            var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
+                                            if (k == 1 || k == 3) marker.setOpacity(0.4);
+                                            marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
+                                        });
+                                    }
+                                }
+
                                 break;
                             case error.POSITION_UNAVAILABLE:
                                 console.log("Location information is unavailable.")
@@ -96,10 +137,11 @@ function gererDonnes(retour) {
                                 break;
                         }
                     }
-                    /*
-                
-                */
                     console.log(actionDatas);
+                    break;
+
+                case 'adressesEvent':
+
                     break;
 
                 case 'deconnexion': //Gestion de la deconnexion
