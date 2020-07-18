@@ -111,11 +111,13 @@ function gererDonnes(retour) {
                                         adresseString += adresseTab[i] + "+";
                                     }
                                     $.ajax({
+                                        async: false,
                                         url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
                                     }).done(function (data) {
                                         console.log(data);
                                         var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                        marker.bindPopup(data[0]['display_name']);
+                                        //marker.bindPopup(data[0]['display_name']);
+                                        marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
                                     });
                                 }
                                 break;
@@ -131,13 +133,6 @@ function gererDonnes(retour) {
                         }
                     }
                     console.log(actionDatas);
-
-                    //var numero = 38;
-                    //var rue = 'avenue+maerckaert';
-
-
-
-
                     break;
 
                 case 'adressesEvent':
