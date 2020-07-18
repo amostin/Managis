@@ -345,6 +345,7 @@ class Events
                     <a class="dropdown-item" href="vosEvenements.php">EVENEMENTS A VENIR</a>
                     <a class="dropdown-item" href="historiqueEvents.php">HISTORIQUE DE VOS EVENEMENTS</a>
                     <a class="dropdown-item" href="adresses.php">VOIR TOUTES LES ADRESSES</a>
+                    <a class="dropdown-item" href="calendrier.php">VOIR LE CALENDRIER</a>
                 </div>
                 </li>';
         $gestionCompte =
