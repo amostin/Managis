@@ -98,8 +98,11 @@ function gererDonnes(retour) {
                     }
                     console.log(actionDatas);
                     
+                    var numero = 34;
+                    var rue = 'avenue+maerckaert';
+
                     $.ajax({
-                        url: 'https://nominatim.openstreetmap.org/?addressdetails=34&q=avenue+maerckaert&format=json&limit=1'
+                        url: 'https://nominatim.openstreetmap.org/?addressdetails='+numero+'&q='+rue+'&format=json&limit=1'
                     }).done(function (data) {
                         //console.log(JSON.parse(data));
                         console.log(data);
