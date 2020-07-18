@@ -96,10 +96,19 @@ function gererDonnes(retour) {
                                 break;
                         }
                     }
-                    /*
-                
-                */
                     console.log(actionDatas);
+                    
+                    $.ajax({
+                        url: 'https://nominatim.openstreetmap.org/?addressdetails=34&q=avenue+maerckaert&format=json&limit=1'
+                    }).done(function (data) {
+                        //console.log(JSON.parse(data));
+                        console.log(data);
+                    });
+                    
+                    break;
+
+                case 'adressesEvent': 
+                    
                     break;
 
                 case 'deconnexion': //Gestion de la deconnexion
