@@ -101,28 +101,11 @@ class Events
      * Renvoie la page de adresse
      */
     private function adresses(){
-        $this->action->affichageDefaut('.intro-text', $this->lectureForm('adresses'));
-        /*
-        $queryString = http_build_query([
-            'access_key' => '7dd0e5fa7c604ea5d137d2891f181026',
-            'query' => 'Rue Royale 1000 Bruxelles',
-            'output' => 'json',
-            'limit' => 1,
-          ]);
-          
-          $ch = curl_init(sprintf('%s?%s', 'http://api.positionstack.com/v1/forward', $queryString));
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          
-          $json = curl_exec($ch);
-          
-          curl_close($ch);
-          
-          $apiResult = json_decode($json, true);
-          
-          print_r($apiResult);
-            */
+        $this->action->affichageDefaut('.intro-text', $this->lectureForm('adresses')); //lis la div du fichier php qui sera rempli garce au case adresse dans mainjs appelé via action
         $vosEventFutur = $this->db->procCall('vosEventFutur', [$_SESSION['user']['pseudo']]); //Appelle la procedure juste avec les evenements du user
-        $this->action->ajouterAction('adresses', $vosEventFutur);
+        $vosEventPasse = $this->db->procCall('vosEventPasse', [$_SESSION['user']['pseudo']]);
+        $adresses = [$vosEventFutur, $vosEventPasse];
+        $this->action->ajouterAction('adresses', $adresses);
         //$this->action->ajouterAction('adressesEvent', $apiResult);
     }
 

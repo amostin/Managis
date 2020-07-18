@@ -47,7 +47,7 @@ function gererDonnes(retour) {
                     break;
 
                 case 'adresses':
-
+                    console.log(actionDatas);
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition, showError);
                     } else {
@@ -66,6 +66,7 @@ function gererDonnes(retour) {
                             maxZoom: 20
                         }).addTo(macarte);
                         var marker = L.marker([latitude, longitude]).addTo(macarte);
+                        marker.setOpacity(0.8);
                         marker.bindPopup("ma position");
                         for (let j = 0; j < actionDatas.length; j++) {
                             var adresseBdd = actionDatas[j]['adresse'];
@@ -75,15 +76,11 @@ function gererDonnes(retour) {
                                 adresseString += adresseTab[i] + "+";
                             }
                             $.ajax({
+                                async: false,
                                 url: 'https://nominatim.openstreetmap.org/?addressdetails=' + adresseTab[0] + '&q=' + adresseString + '&format=json&limit=1'
                             }).done(function (data) {
-                                //console.log(JSON.parse(data));
-                                console.log(data[0]['lat']);
-    
                                 var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                //marker.bindPopup(actionDatas[0]['adresse']);
-                                marker.bindPopup(data[0]['display_name']);
-    
+                                marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
                             });
                         }
                         //marker.bindPopup(actionDatas[0]['adresse']);
@@ -101,7 +98,6 @@ function gererDonnes(retour) {
                                     maxZoom: 20
                                 }).addTo(macarte);
                                 var marker = L.marker([lat, lon]).addTo(macarte);
-                                //marker.bindPopup(actionDatas[0]['adresse']);
                                 marker.bindPopup("Centre de bruxelles");
                                 for (let j = 0; j < actionDatas.length; j++) {
                                     var adresseBdd = actionDatas[j]['adresse'];
@@ -116,7 +112,6 @@ function gererDonnes(retour) {
                                     }).done(function (data) {
                                         console.log(data);
                                         var marker = L.marker([data[0]['lat'], data[0]['lon']]).addTo(macarte);
-                                        //marker.bindPopup(data[0]['display_name']);
                                         marker.bindPopup('<a href="https://maps.google.com/?q=' + adresseTab[0] + ' ' + data[0]['display_name'] + '" target="_blank">' + adresseTab[0] + ' ' + data[0]['display_name'] + ' </a>');
                                     });
                                 }
