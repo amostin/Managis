@@ -474,7 +474,7 @@
         var _ = this;
         _.calculateDays();
         
-        if (!_.$elements.calendarEl.html()) {
+        if (_.$elements.calendarEl.html()) {
             var markup;
 
             // --- BUILDING MARKUP BEGINS --- //

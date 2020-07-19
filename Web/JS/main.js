@@ -49,6 +49,9 @@ function gererDonnes(retour) {
 
                 case 'calendrier':
                     console.log(actionDatas);
+                    $('#calendar').evoCalendar({ 
+                        todayHighlight: !0, format: 'MM dd, yyyy', titleFormat: 'MM'
+                    });
                     break;
 
                 case 'adresses':
