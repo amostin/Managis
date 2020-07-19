@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <input class="form-control" id="adresse" name="adresse" type="text" required="required" autocomplete="on">
-                        *Format ville-rue-numéro
+                        *Format numero rue ville pays
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
