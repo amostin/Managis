@@ -49,8 +49,20 @@ function gererDonnes(retour) {
 
                 case 'calendrier':
                     console.log(actionDatas);
-                    $('#calendar').evoCalendar({ 
-                        todayHighlight: !0, format: 'MM dd, yyyy', titleFormat: 'MM'
+
+
+
+                    $('#calendar').evoCalendar({
+                        todayHighlight: !0,
+                        format: 'yyyy-mm-dd',
+                        calendarEvents: [
+                            {
+                                id: actionDatas[0][0]['idEvent'], // Event's ID (required)
+                                name: actionDatas[0][0]['nomEvent'], // Event name (required)
+                                date: actionDatas[0][0]['dateEvent'], // Event date (required)
+                                type: "holiday", // Event type (required)
+                            }
+                        ]
                     });
                     break;
 
