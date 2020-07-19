@@ -50,19 +50,34 @@ function gererDonnes(retour) {
                 case 'calendrier':
                     console.log(actionDatas);
 
+                    var nbEvents = 0;
+                    var events = [];
+                    //var event = {};
+                    /*
+                    for (let k = 0; k < actionDatas.length; k++) {
+                        for (let j = 0; j < actionDatas[k].length; j++) {
+                            nbEvents++;
+                        }
+                    }
+                    console.log(nbEvents);
+                    */
+                    let numEvent = 0;
+                    for (let k = 0; k < actionDatas.length; k++) {
+                        for (let j = 0; j < actionDatas[k].length; j++) {
+                            events[numEvent] = { 'id': actionDatas[k][j]['idEvent'],
+                                'name': actionDatas[k][j]['nomEvent'],
+                                'date': actionDatas[k][j]['dateEvent'],
+                                'type': "holiday" }
+                            //console.log(event);
+                            numEvent++;
+                        }
+                    }
 
 
                     $('#calendar').evoCalendar({
                         todayHighlight: !0,
                         format: 'yyyy-mm-dd',
-                        calendarEvents: [
-                            {
-                                id: actionDatas[0][0]['idEvent'], // Event's ID (required)
-                                name: actionDatas[0][0]['nomEvent'], // Event name (required)
-                                date: actionDatas[0][0]['dateEvent'], // Event date (required)
-                                type: "holiday", // Event type (required)
-                            }
-                        ]
+                        calendarEvents: events
                     });
                     break;
 
