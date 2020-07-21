@@ -403,10 +403,12 @@ function gererDonnes(retour) {
                     actionDatas.forEach(function (data) {
                         pseudos.push(data[0]);
                     });
+                    
                     //Lorsqu'on est sur le champ ou on met le pseudo, il y aura une proposition avec les pseudos existants par rapport à la lettre mise
                     $('#pseudoInv').autocomplete({
                         source: pseudos
                     });
+                    
                     break;
 
                 case 'listeFourniture': //Liste des fournitures sous forme de tableau
