@@ -1,5 +1,5 @@
 <?php
- function infoSoiree($idEvent)
+function infoSoiree($idEvent)
 {
     $db = new Db();
     $infoSoiree = $db->procCall('vosInvitAno', [$idEvent]);
@@ -17,10 +17,10 @@
                     </tr>
                     </thead>
                     <tbody id="vosEvent" align="left" class="transparent"><tr>';
-                        $tabInfoSoiree .= '<td>' . $infoSoiree[0]['nomEvent'] . '</td>' .
-                            '<td>' . $infoSoiree[0]['hote'] . '</td>' .
-                            '<td>' . $infoSoiree[0]['dateEvent'] . '</td>' .
-                            '<td>' . $infoSoiree[0]['adresse'] . '</td>';
+    $tabInfoSoiree .= '<td>' . $infoSoiree[0]['nomEvent'] . '</td>' .
+        '<td>' . $infoSoiree[0]['hote'] . '</td>' .
+        '<td>' . $infoSoiree[0]['dateEvent'] . '</td>' .
+        '<td>' . $infoSoiree[0]['adresse'] . '</td>';
 
     $tabInfoSoiree .= '</tr></tbody></table></div></div>';
     echo $tabInfoSoiree;
@@ -128,105 +128,105 @@ function listeParticipant($idEvent)
 
 <body id="page-top">
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Managis</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ml-auto">
-                <?php
-                $accueil =
-                    '<li class="nav-item">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Managis</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <?php
+                    $accueil =
+                        '<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="index.php">Accueil</a>
           </li>';
                     echo $accueil;
-                ?>
-            </ul>
+                    ?>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<header class="masthead">
+    <header class="masthead">
 
-    <div class="container">
-        <div class="intro-text">
-            <div class="panel-heading">
-                <h3 class="panel-title gestionDeCompteTitre pasColler" align="center">Vous avez été invité à cet événement :</h3>
-            </div>
-            <div class="panel-heading">
-                <h3 class="panel-title avertissementAnonyme" align="center" style="color : orange">Pour le rejoindre veuillez d'abord rejoindre l'accueil afin de vous inscrire.</h3>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <?php infoSoiree($_SESSION['idEvent']); ?>
+        <div class="container">
+            <div class="intro-text">
+                <div class="panel-heading">
+                    <h3 class="panel-title gestionDeCompteTitre pasColler" align="center">Vous avez été invité à cet événement :</h3>
+                </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title avertissementAnonyme" align="center" style="color : orange">Pour le rejoindre veuillez d'abord rejoindre l'accueil afin de vous inscrire.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <?php infoSoiree($_SESSION['idEvent']); ?>
+                    </div>
+                </div>
+                <div class="row text-center ajustement-div">
+                    <?php listeInvites($_SESSION['idEvent']); ?>
+                    <?php listeParticipant($_SESSION['idEvent']); ?>
                 </div>
             </div>
-            <div class="row text-center ajustement-div">
-                <?php listeInvites($_SESSION['idEvent']); ?>
-                <?php listeParticipant($_SESSION['idEvent']); ?>
+        </div>
+    </header>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">Managis Website</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </footer>
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4">
-                <span class="copyright">Managis Website</span>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Terms of Use</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Contact form JavaScript -->
-<script src="js/jqBootstrapValidation.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="js/agency.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
 
 </body>
 
