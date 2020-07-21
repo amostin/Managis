@@ -702,7 +702,7 @@ class Events
 
         //On renvoie vers le client le message d'erreur si le pseudo transmis n'existe pas
         if (!$user && !$resultatSansEspaces && !$resultatAvecEspaces && !empty($pseudo) && $testMail) {
-            mail($pseudo, 'Invitation dans un nouvel evenement', 'Bonjour, un de vos amis vous a invité à son événement rejoignez le ici: https://managis.be/index.php?rq=' . $_SESSION['idEvent']);
+            mail($pseudo, 'Invitation dans un nouvel evenement', 'Bonjour, un de vos amis vous a invité à son événement rejoignez le ici: https://managis.ambroisemostin.com/index.php?rq=' . $_SESSION['idEvent']);
             $this->action->ajouterAction('succInv', "Un mail d'invitation a été envoyé");
         } else if (empty($pseudo)) {
             $this->action->ajouterAction('errorInv', "Veuillez spécifier le pseudo");
@@ -731,7 +731,7 @@ class Events
             $this->action->ajouterAction('tousLesPseudos', $pseudos);
             $this->action->ajouterAction('listeInvites', $invites);
             $this->action->ajouterAction('infoEvent', [$nombreInv, $nombreFour, $nombreComm, $nombreParticipant]);
-            mail($mail, "Invitation à l'evenement", "Vous avez été invité à l'événement, veuillez vous connecter pour précisez si vous participez à l'événement https://managis.be");
+            mail($mail, "Invitation à l'evenement", "Vous avez été invité à l'événement, veuillez vous connecter pour précisez si vous participez à l'événement https://managis.ambroisemostin.com");
 
             if ($afficherSuppr) $this->action->ajouterAction('afficherSuppr', '');
         }

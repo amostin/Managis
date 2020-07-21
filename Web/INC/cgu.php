@@ -95,7 +95,7 @@ En vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'Utilisateu
 <ul>
     <li>Son espace personnel sur le site ;</li>
     <li>Un formulaire de contact ;</li>
-    <li>Par mail à contact/managis@gmail.com ;</li>
+    <li>Par mail à contact@ambroisemostin.com ;</li>
 </ul>
 
 
