@@ -6,6 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Accueil from './components/Accueil';
 import Inscription from './components/Inscription';
 import Connexion from './components/Connexion';
+import Profil from './components/Profil';
+import CreationAnnonce from './components/CreationAnnonce';
+
 
 function EventScreen() {
   return (
@@ -31,6 +34,8 @@ function AccueilStackScreen() {
       <AccueilStack.Screen name="Accueil" component={Accueil} options={{ title: 'Accueil', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
       <AccueilStack.Screen name="Inscription" component={Inscription} options={{ title: 'Inscription', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
       <AccueilStack.Screen name="Connexion" component={Connexion} options={{ title: 'Connexion', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
+      <AccueilStack.Screen name="Profil" component={Profil} options={{ title: 'Profil', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
+      <AccueilStack.Screen name="CreationAnnonce" component={CreationAnnonce} options={{ title: 'CreationAnnonce', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
     </AccueilStack.Navigator>
   );
 }

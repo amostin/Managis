@@ -40,11 +40,11 @@ class Connexion extends React.Component {
                     placeholderTextColor='#FFFFFF'
                     underlineColorAndroid="transparent"
                     onChangeText={UserPassword => this.setState({ UserPassword })}
-
                 />
 
                 <TouchableOpacity
-                    onPress={this.login}
+                    //onPress={this.login}
+                    onPress={() => this.props.navigation.navigate("Profil")}
                     style={styles.submitButton}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>Se connecter</Text>
                 </TouchableOpacity>

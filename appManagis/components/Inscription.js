@@ -46,7 +46,8 @@ class Inscription extends React.Component {
                 />
 
                 <TouchableOpacity
-                    onPress={this.userRegister}
+                    //onPress={this.userRegister}
+                    onPress={() => this.props.navigation.navigate("Profil")}
                     style={styles.submitButton}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>S'inscrire</Text>
                 </TouchableOpacity>
@@ -61,10 +62,6 @@ class Inscription extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignContent: 'center',
-    },
     logo: {
         width: 350,
         height: 300,
