@@ -7,26 +7,26 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="nom" name="nomEvent" type="text"  required="required">
+                        <input class="form-control" id="nom" name="nomEvent" type="text"  required="required" autocomplete="on">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="adresse" name="adresse" type="text" required="required">
-                        *Format ville-rue-numéro
+                        <input class="form-control" id="adresse" name="adresse" type="text" required="required" autocomplete="on">
+                        *Format numero rue ville pays
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="date" name="date" type="date"  required="required">
+                        <input class="form-control" id="date" name="date" type="date"  required="required" autocomplete="on">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="heure" name="heure" type="time" required="required">
+                        <input class="form-control" id="heure" name="heure" type="time" required="required" autocomplete="on">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

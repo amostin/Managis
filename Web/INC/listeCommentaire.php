@@ -6,7 +6,7 @@
                 <h5 class="card-title font-weight-bold">Ajoutez un commentaire pour l'hôte</h5>
             <form id="commentaire" name="commentaire" method="post" action="validation.html">
                 <div id="errorFormmm"></div>
-                    <input type="text" id="commentaire" name="commentaire" class="form-control input-sm" placeholder="Commentaire...">
+                    <input type="text" id="commentaire" name="commentaire" class="form-control input-sm" placeholder="Commentaire..." autocomplete="on">
                     <input type="submit" id="commentaire" value="Ajoutez" class="btn btn-primary boutonEvent">
             </form>
             </div>

@@ -1,6 +1,8 @@
+
+
 <h2>ARTICLE 1 : Objet </h2>
 
-Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site [votre site] et de ses services.
+Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site managis et de ses services.
 
 Ce contrat est conclu entre :
 
@@ -13,22 +15,13 @@ Les conditions générales d'utilisation doivent être acceptées par tout Utili
 
 <h2>ARTICLE 2 : Mentions légales</h2>
 
-Pour les personnes morales :
-
-Le site [nom du site] est édité par la société [nom de la société], [statut juridique (SAS, SARL, etc.)] au capital de [montant en euros] €, dont le siège social est situé au [adresse du siège social].
-
-La société est représentée par [nom et prénom du responsable].
-
-
-Pour les personnes physiques :
-
-Le site [nom du site] est édité par [nom et prénom du responsable], domicilié au [adresse postale].
+Le site managis est édité par un groupe de développeur constitué de Ambroise Mostin, dom, adri, rémy, nico, max et ibra , étudiant à l'EPHEC de Louvain La Neuve.
 
 
 
 <h2>ARTICLE 3 : accès aux services</h2>
 
-L’Utilisateur du site [votre site] a accès aux services suivants :
+L’Utilisateur du site managis a accès aux services suivants :
 <ul>
     <li>Creer un evenement</li>
     <li>Participer à un evenement</li>
@@ -45,13 +38,13 @@ L'Utilisateur est responsable des risques liés à l’utilisation de son identi
 <br>
 Le mot de passe de l’Utilisateur doit rester secret. En cas de divulgation de mot de passe, l’Éditeur décline toute responsabilité.
 <br>
-L’Utilisateur assume l’entière responsabilité de l’utilisation qu’il fait des informations et contenus présents sur le site [votre site].
+L’Utilisateur assume l’entière responsabilité de l’utilisation qu’il fait des informations et contenus présents sur le site managis.
 <br>
 Tout usage du service par l'Utilisateur ayant directement ou indirectement pour conséquence des dommages doit faire l'objet d'une indemnisation au profit du site.
 <br>
 Le site permet aux membres de publier sur le site :
 <ul>
-    <li>[Commentaires] ;</li>
+    <li>Commentaires ;</li>
     <li>Fournitures ;</li>
     <li>Etc.</li>
 </ul>
@@ -70,14 +63,14 @@ Tout dysfonctionnement du serveur ou du réseau ne peut engager la responsabilit
 <br>
 De même, la responsabilité du site ne peut être engagée en cas de force majeure ou du fait imprévisible et insurmontable d'un tiers.
 <br>
-Le site [votre site] s'engage à mettre en œuvre tous les moyens nécessaires pour garantir la sécurité et la confidentialité des données. Toutefois, il n’apporte pas une garantie de sécurité totale.
+Le site managis s'engage à mettre en œuvre tous les moyens nécessaires pour garantir la sécurité et la confidentialité des données. Toutefois, il n’apporte pas une garantie de sécurité totale.
 <br>
 L’Éditeur se réserve la faculté d’une non-garantie de la fiabilité des sources, bien que les informations diffusées su le site soient réputées fiables.
 <br>
 
 <h2>ARTICLE 6 : Propriété intellectuelle</h2>
 
-Les contenus du site [votre site] (logos, textes, éléments graphiques, vidéos, etc.) son protégés par le droit d’auteur, en vertu du Code de la propriété intellectuelle.
+Les contenus du site managis (logos, textes, éléments graphiques, vidéos, etc.) son protégés par le droit d’auteur, en vertu du Code de la propriété intellectuelle.
 <br>
 L’Utilisateur devra obtenir l’autorisation de l’éditeur du site avant toute reproduction, copie ou publication de ces différents contenus.
 <br>
@@ -92,7 +85,7 @@ L’Éditeur du site se réserve le droit de modérer ou de supprimer librement 
 
 L’Utilisateur doit obligatoirement fournir des informations personnelles pour procéder à son inscription sur le site.
 <br>
-L’adresse électronique (e-mail) de l’utilisateur pourra notamment être utilisée par le site [nom de votre site] pour la communication d’informations diverses et la gestion du compte.
+L’adresse électronique (e-mail) de l’utilisateur pourra notamment être utilisée par le site managis pour la communication d’informations diverses et la gestion du compte.
 <br>
 Managis garantie le respect de la vie privée de l’utilisateur, conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés.
 <br>
@@ -102,15 +95,15 @@ En vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'Utilisateu
 <ul>
     <li>Son espace personnel sur le site ;</li>
     <li>Un formulaire de contact ;</li>
-    <li>Par mail à contact/managis@gmail.com ;</li>
+    <li>Par mail à contact@ambroisemostin.com ;</li>
 </ul>
 
 
 <h2>ARTICLE 8 : Liens hypertextes</h2>
 
-Les domaines vers lesquels mènent les liens hypertextes présents sur le site n’engagent pas la responsabilité de l’Éditeur de [votre site], qui n’a pas de contrôle sur ces liens.
+Les domaines vers lesquels mènent les liens hypertextes présents sur le site n’engagent pas la responsabilité de l’Éditeur de managis, qui n’a pas de contrôle sur ces liens.
 <br>
-Il est possible pour un tiers de créer un lien vers une page du site [votre site] sans autorisation expresse de l’éditeur.
+Il est possible pour un tiers de créer un lien vers une page du site managis sans autorisation expresse de l’éditeur.
 <br>
 
 <h2>ARTICLE 9 : Évolution des conditions générales d’utilisation </h2>
@@ -122,3 +115,6 @@ Le site Managis se réserve le droit de modifier les clauses de ces conditions g
 
 La durée du présent contrat est indéterminée. Le contrat produit ses effets à l'égard de l'Utilisateur à compter du début de l’utilisation du service.
 
+<h2>ARTICLE 11 : Déclaration des cookies</h2>
+
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/04c00e12-09da-468b-88ed-cd50eb0ad319/cd.js" type="text/javascript" async></script>

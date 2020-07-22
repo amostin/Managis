@@ -4,7 +4,7 @@ include_once 'Actions.php';
 class Db
 {
 
-    private $pdo= null; //Le PDO donc la requete vers la BDD
+    private $pdo = null; //Le PDO donc la requete vers la BDD
     private $action = null; //Action qui va reprendre la classe action
 
 
@@ -16,11 +16,12 @@ class Db
     /**
      * La fonction permet d'effectuer une connexion vers la BDD
      */
-    public function connexionBDD(){
+    public function connexionBDD()
+    {
         try {
-            $this->pdo = new PDO('mysql:host=localhost:3308;dbname=managis', 'root', '');
-        }
-        catch (PDOException $e){
+            //$this->pdo = new PDO('mysql:host=localhost:3308;dbname=managis', 'root', '');
+            $this->pdo = new PDO('mysql:host=91.216.107.162;dbname=ambro1430042', 'ambro1430042', 'shnzqwgi7h');
+        } catch (PDOException $e) {
             print_r($e);
         }
     }
@@ -31,118 +32,126 @@ class Db
      * @param array $procParams les paramètres qu'on transmet vers la procèdure
      * @return mixed
      */
-    public function procCall($procName, $procParams= array()){
-        $params= array();
-        switch($procName){
-            case 'creationUser' :
+    public function procCall($procName, $procParams = array())
+    {
+        $params = array();
+        switch ($procName) {
+            case 'creationUser':
                 array_push($params, '?', '?');
-            case 'verifEmail' :
-            case 'verifPseudo' :
-            case 'espaceMembre' :
-            case 'nombreComm' :
-            case 'nombreFour' :
-            case 'nombreInv' :
-            case 'vosEventFutur' :
-            case 'vosEventPasse'    :
-            case 'nombreParticipant' :
-            case 'listeParticipant' :
-            case 'vosInvitAno' :
+            case 'verifEmail':
+            case 'verifPseudo':
+            case 'espaceMembre':
+            case 'nombreComm':
+            case 'nombreFour':
+            case 'nombreInv':
+            case 'vosEventFutur':
+            case 'vosEventPasse':
+            case 'nombreParticipant':
+            case 'listeParticipant':
+            case 'vosInvitAno':
             case 'suppEvent':
-            case 'infoEvent' :
+            case 'infoEvent':
             case 'mailSupprInvite':
-            case 'mailInv' :
-            case 'infoPopUp' :
+            case 'mailInv':
+            case 'infoPopUp':
                 array_push($params, '?');
-            case 'tousLesUsers' :
+            case 'tousLesUsers':
                 try {
                     $this->connexionBDD();
-                    $callProc = 'call '. $procName.'('.join(',', $params).')';
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
                     $request = $this->pdo->prepare($callProc);
                     $request->execute($procParams);
                     return $request->fetchAll();
-                }
-                catch (PDOException $e){
+                } catch (PDOException $e) {
                     $e->getMessage();
                 }
                 break;
-            default : $this->action->affichageDefaut('.intro-text', 'procedure introuvable');
+            default:
+                $this->action->affichageDefaut('.intro-text', 'procedure introuvable');
         }
-        switch($procName){
-            case 'connexionUser' :
-            case 'modifMdp'  :
-            case 'ajouterInvites'    :
-            case 'ajouterFournitures' :
-            case 'supprCommentaire' :
-            case 'supprFourniture' :
-            case 'supprInvites' :
-            case 'vosInvitFutur' :
-            case 'vosInvitPasse' :
+        switch ($procName) {
+            case 'connexionUser':
+            case 'modifMdp':
+            case 'ajouterInvites':
+            case 'ajouterFournitures':
+            case 'supprCommentaire':
+            case 'supprFourniture':
+            case 'supprInvites':
+            case 'vosInvitFutur':
+            case 'vosInvitPasse':
             case 'ajoutParticipant':
-            case 'supprParticipant' :
+            case 'supprParticipant':
                 array_push($params, '?', '?');
-            try {
-                $this->connexionBDD();
-                $callProc = 'call '. $procName.'('.join(',', $params).')';
-                $request = $this->pdo->prepare($callProc);
-                $request->execute($procParams);
-                return $request->fetchAll();
-            }
-            catch (PDOException $e){
-                $e->getMessage();
-            }
-            break;
+                try {
+                    $this->connexionBDD();
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
+                    $request = $this->pdo->prepare($callProc);
+                    $request->execute($procParams);
+                    return $request->fetchAll();
+                } catch (PDOException $e) {
+                    $e->getMessage();
+                }
+                break;
         }
-        switch($procName) {
-            case 'creerEvent' :
-            array_push($params, '?', '?', '?', '?');
-            case 'listeInvites' :
-            case 'listeFourniture' :
-            case 'listeCommentaire'  :
+        switch ($procName) {
+            case 'creerEvent':
+                array_push($params, '?', '?', '?', '?');
+            case 'listeInvites':
+            case 'listeFourniture':
+            case 'listeCommentaire':
                 array_push($params, '?');
-            try {
-                $this->connexionBDD();
-                $callProc = 'call '. $procName.'('.join(',', $params).')';
-                $request = $this->pdo->prepare($callProc);
-                $request->execute($procParams);
-                return $request->fetchAll();
-            }
-            catch (PDOException $e){
-                $e->getMessage();
-            }
-            break;
+                try {
+                    $this->connexionBDD();
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
+                    $request = $this->pdo->prepare($callProc);
+                    $request->execute($procParams);
+                    return $request->fetchAll();
+                } catch (PDOException $e) {
+                    $e->getMessage();
+                }
+                break;
         }
-        switch ($procName){
-            case 'ajoutQuantite' :
+        switch ($procName) {
+            case 'ajoutQuantite':
                 array_push($params, '?', '?', '?');
                 try {
                     $this->connexionBDD();
-                    $callProc = 'call '. $procName.'('.join(',', $params).')';
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
                     $request = $this->pdo->prepare($callProc);
                     $request->execute($procParams);
                     return $request->fetchAll();
-                }
-                catch (PDOException $e){
+                } catch (PDOException $e) {
                     $e->getMessage();
                 }
                 break;
         }
-        switch ($procName){
-            case 'modifEvent' :
+        switch ($procName) {
+            case 'modifEvent':
                 array_push($params, '?', '?', '?', '?', '?');
-            case 'ajoutCommentaire' :
-                array_push($params,'?', '?', '?');
                 try {
                     $this->connexionBDD();
-                    $callProc = 'call '. $procName.'('.join(',', $params).')';
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
                     $request = $this->pdo->prepare($callProc);
                     $request->execute($procParams);
                     return $request->fetchAll();
-                }
-                catch (PDOException $e){
+                } catch (PDOException $e) {
                     $e->getMessage();
                 }
                 break;
         }
-
+        switch ($procName) {
+            case 'ajoutCommentaire':
+                array_push($params, '?', '?', '?');
+                try {
+                    $this->connexionBDD();
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
+                    $request = $this->pdo->prepare($callProc);
+                    $request->execute($procParams);
+                    return $request->fetchAll();
+                } catch (PDOException $e) {
+                    $e->getMessage();
+                }
+                break;
+        }
     }
 }

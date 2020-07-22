@@ -6,7 +6,7 @@
                     <h5 class="card-title font-weight-bold">Ajouter des fournitures !</h5>
                     <form id="formFournitures" name="formFournitures" method="post" action="validation.html">
                         <div id="errorForm"></div>
-                        <input type="text"  name="fourniture" class="form-control input-sm" placeholder="Fourniture pour l'événement">
+                        <input type="text"  name="fourniture" class="form-control input-sm" placeholder="Fourniture pour l'événement" autocomplete="on">
                         <input type="submit" value="Ajouter la fourniture à la liste" class="btn btn-primary boutonEvent">
                     </form>
                 </div>
