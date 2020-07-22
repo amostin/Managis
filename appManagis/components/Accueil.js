@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage, ImageBackground,SafeAreaView } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 
-class Profil extends React.Component {
+class Accueil extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -59,4 +58,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Profil
+export default Accueil
