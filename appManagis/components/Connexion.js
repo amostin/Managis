@@ -50,7 +50,7 @@ class Connexion extends React.Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("Register")}>
+                    onPress={() => this.props.navigation.navigate("Inscription")}>
                     <Text>Pas encore de compte ? Inscrivez vous !</Text>
                 </TouchableOpacity>
             </SafeAreaView>

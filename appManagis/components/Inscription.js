@@ -52,7 +52,7 @@ class Inscription extends React.Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("Login")}>
+                    onPress={() => this.props.navigation.navigate("Connexion")}>
                     <Text>Vous avez déjà un compte ? Connectez vous !</Text>
                 </TouchableOpacity>
             </SafeAreaView>
