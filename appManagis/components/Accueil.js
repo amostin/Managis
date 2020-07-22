@@ -33,6 +33,12 @@ class Accueil extends React.Component {
                         <Text style={styles.submitButton}>Créer une Annonce</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.submitContainer}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('ListeRestes')}>
+                        <Text style={styles.submitButton}>Liste des restes</Text>
+                    </TouchableOpacity>
+                </View>
             </SafeAreaView>
         )
     }
