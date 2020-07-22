@@ -1,21 +1,60 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image } from "react-native";
 
 class Inscription extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            userName: '',
+            userEmail: '',
+            userPassword: ''
+        }
     }
 
     render() {
         return (
             <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Inscription')}>
-                        <Text style={styles.submitButton}>Inscription</Text>
-                    </TouchableOpacity>
-                </View>
+
+                <Image
+                    source={require('../assets/logo_transparent.png')}
+                    style={styles.logo}
+                />
+
+                <TextInput
+                    placeholder="Nom"
+                    style={styles.inputBox}
+                    underlineColorAndroid="transparent"
+                    onChangeText={userName => this.setState({ userName })}
+                    placeholderTextColor='#FFFFFF'
+                />
+
+                <TextInput
+                    placeholder="Email"
+                    placeholderTextColor='#FFFFFF'
+                    style={styles.inputBox}
+                    underlineColorAndroid="transparent"
+                    onChangeText={userEmail => this.setState({ userEmail })}
+                />
+
+                <TextInput
+                    placeholder="Mot de passe"
+                    style={styles.inputBox}
+                    secureTextEntry={true}
+                    placeholderTextColor='#FFFFFF'
+                    underlineColorAndroid="transparent"
+                    onChangeText={userPassword => this.setState({ userPassword })}
+                />
+
+                <TouchableOpacity
+                    onPress={this.userRegister}
+                    style={styles.submitButton}>
+                    <Text style={{ color: 'white', textAlign: 'center' }}>S'inscrire</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("Login")}>
+                    <Text>Vous avez déjà un compte ? Connectez vous !</Text>
+                </TouchableOpacity>
             </SafeAreaView>
         )
     }
@@ -26,29 +65,28 @@ const styles = StyleSheet.create({
         flex: 1,
         alignContent: 'center',
     },
+    logo: {
+        width: 350,
+        height: 300,
+        margin: -50
+    },
+    inputBox: {
+        width: 300,
+        backgroundColor: '#6D071A',
+        borderRadius: 25,
+        paddingVertical: 12,
+        fontSize: 16,
+        color: '#FFFFFF',
+        alignItems: 'center',
+        marginVertical: 10,
+        textAlign: 'center'
+    },
     submitButton: {
+        backgroundColor: '#6D071A',
         width: 100,
         borderRadius: 25,
-        paddingVertical: 13,
-        textAlign: 'center',
-        color: '#FFFFFF',
-
-    },
-    submitContainer: {
-        backgroundColor: "#6D071A",
-        borderRadius: 25,
         marginVertical: 10,
-    },
-    imgBack: {
-        width: '100%',
-        height: '80%',
-        resizeMode: 'repeat',
-        justifyContent: 'center',
-        alignItems: 'center',
-        right: 20,
-        top: 120,
-        opacity: 0.2,
-        position: 'absolute',
+        paddingVertical: 13
     }
 });
 
