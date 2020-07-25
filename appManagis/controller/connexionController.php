@@ -6,11 +6,11 @@ $db = new dbAccess();
 $json = file_get_contents('php://input');
 $obj = json_decode($json, true);
 
-$email = htmlspecialchars($obj["email"]);
+$pseudo = htmlspecialchars($obj["pseudo"]);
 $passwd = hash("sha256", htmlspecialchars($obj["passwd"]));
 
 
-$connect = $db->procCall('connexionUser', [$email, $passwd]);
+$connect = $db->procCall('connexionUser', [$pseudo, $passwd]);
 
 if (!empty($connect)) {
     $SuccessLoginMsg = 'ok';

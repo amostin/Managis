@@ -17,12 +17,12 @@ class Connexion extends React.Component {
     }
     login = () => {
         const { UserEmail, UserPassword, UserName } = this.state;
-        if (UserEmail == "") {
-            this.setState({ email: 'Entrez votre adresse mail!' })
+        if (UserName == "") {
+            alert("Entrez un pseudo");
         }
 
         else if (UserPassword == "") {
-            this.setState({ passwd: "Entrez votre mot de passe!" })
+            alert("Entrez votre mot de passe.");
         }
 
         else {
@@ -64,7 +64,7 @@ class Connexion extends React.Component {
 
         //Keyboard.dismiss();
     }
-
+//pas l'air de servir a grand chose...
     get_Response_Info = (error, result) => {
         if (error) {
             Alert.alert('Error fetching data: ' + error.toString());
@@ -94,7 +94,7 @@ class Connexion extends React.Component {
                     style={styles.inputBox}
                     placeholder="Pseudo"
                     underlineColorAndroid="transparent"
-                    onChangeText={UserEmail => this.setState({ UserEmail })}
+                    onChangeText={UserName => this.setState({ UserName })}
                     placeholderTextColor='#FFFFFF'
                 />
 
