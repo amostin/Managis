@@ -8,7 +8,8 @@ import {
     TextInput,
     TouchableOpacity,
     ScrollView,
-    SafeAreaView
+    SafeAreaView,
+    AsyncStorage
 } from 'react-native'
 
 class CreationAnnonce extends Component {
@@ -21,6 +22,55 @@ class CreationAnnonce extends Component {
             userQuantiteReste: '',
             userDescriptionReste: '',
             userAdresse: ''
+        }
+    }
+
+    componentDidMount() {
+        this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+        var value = await AsyncStorage.getItem('UserId');
+        if (value !== null) {
+            this.setState({ UserId: value });
+        }
+    }
+
+    userCreateAnnonce = () => {
+        const { userNomReste } = this.state;
+        const { userQuantiteReste } = this.state;
+        const { userDescriptionReste } = this.state;
+        const { userAdresse } = this.state;
+
+        if (userNomReste == "") {
+
+            //this.setState({ userNomReste: 'Entrez le nom de votre reste ' })
+            alert("Entrez le nom de votre reste ");
+        }
+        else {
+
+            fetch('https://managis.ambroisemostin.com/controller/ajoutAnnonceController.php', {
+                method: 'POST',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: this.state.UserId,
+                    nomReste: userNomReste,
+                    quantiteReste: userQuantiteReste,
+                    descriptionReste: userDescriptionReste,
+                    adresse: userAdresse,
+                })
+
+            })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    alert("L'annonce a bien été créée.");
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         }
     }
 

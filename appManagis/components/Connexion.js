@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, AsyncStorage } from "react-native";
 
 class Connexion extends React.Component {
     constructor(props) {
@@ -12,6 +12,71 @@ class Connexion extends React.Component {
             avatar_url: '',
             avatar_show: false,
             UserId: '',
+
+        }
+    }
+    login = () => {
+        const { UserEmail, UserPassword, UserName } = this.state;
+        if (UserName == "") {
+            alert("Entrez un pseudo");
+        }
+
+        else if (UserPassword == "") {
+            alert("Entrez votre mot de passe.");
+        }
+
+        else {
+            fetch('https://managis.ambroisemostin.com/controller/connexionController.php', {
+                method: 'POST',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+
+                    email: UserEmail,
+                    pseudo: UserName,
+                    passwd: UserPassword,
+
+                })
+
+            })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson[0] == "ok") {
+
+
+                        this.props.navigation.navigate("Profil");
+
+                        //Je crée la session ici et j'attribue des valeurs retournées par User_Login.php
+                        AsyncStorage.setItem('UserId', responseJson[1]);
+                        AsyncStorage.setItem('UserEmail', responseJson[2]);
+                        AsyncStorage.setItem('UserName', responseJson[3]);
+
+                    } else {
+                        alert("Mot de passe ou adresse mail incorrect!");
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
+        //Keyboard.dismiss();
+    }
+//pas l'air de servir a grand chose...
+    get_Response_Info = (error, result) => {
+        if (error) {
+            Alert.alert('Error fetching data: ' + error.toString());
+        } else {
+
+            this.setState({ user_name: 'Welcome' + ' ' + result.name });
+
+            //this.setState({ avatar_url: this.props.navigation.navigate("Restes") });
+
+            //this.setState({ avatar_show: true })
+
+            console.log(result);
 
         }
     }
@@ -29,7 +94,7 @@ class Connexion extends React.Component {
                     style={styles.inputBox}
                     placeholder="Pseudo"
                     underlineColorAndroid="transparent"
-                    onChangeText={UserEmail => this.setState({ UserEmail })}
+                    onChangeText={UserName => this.setState({ UserName })}
                     placeholderTextColor='#FFFFFF'
                 />
 
@@ -43,8 +108,8 @@ class Connexion extends React.Component {
                 />
 
                 <TouchableOpacity
-                    //onPress={this.login}
-                    onPress={() => this.props.navigation.navigate("Profil")}
+                    onPress={this.login}
+                    //onPress={() => this.props.navigation.navigate("Profil")}
                     style={styles.submitButton}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>Se connecter</Text>
                 </TouchableOpacity>

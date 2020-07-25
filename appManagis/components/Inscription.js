@@ -5,9 +5,62 @@ class Inscription extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: '',
-            userEmail: '',
-            userPassword: ''
+            pseudo: '',
+            email: '',
+            mdp: ''
+        }
+    }
+
+    inscription = () => {
+        const { pseudo } = this.state;
+        const { email } = this.state;
+        const { mdp } = this.state;
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email == "") {
+            alert('Entrez votre adresse mail.');
+        }
+        /*
+                else if (reg.test(email) === false) {
+                    alert("l'adresse mail entrée n'est pas correcte.");
+                    return false;
+                }
+                */
+        else if (pseudo == "") {
+            alert("Entrez un pseudo");
+        }
+        else if (mdp == "") {
+            alert("Entrez votre mot de passe.");
+        }
+        else {
+
+            fetch('https://managis.ambroisemostin.com/controller/inscriptionController.php', {
+                method: 'post',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pseudo: pseudo,
+                    email: email,
+                    mdp: mdp,
+                })
+
+            })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson === "ok") {
+                        alert('Le compte a bien été créé.');
+                    } else if (responseJson === "mailPseudoPasOk") {
+                        alert('Le mail et le pseudo sont déjà utilisés.');
+                    } else if (responseJson === "mailPasOk") {
+                        alert('Le mail est déjà utilisé.');
+                    } else if (responseJson === "pseudoPasOk") {
+                        alert('Le pseudo est déjà utilisé.');
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         }
     }
 
@@ -24,7 +77,7 @@ class Inscription extends React.Component {
                     placeholder="Nom"
                     style={styles.inputBox}
                     underlineColorAndroid="transparent"
-                    onChangeText={userName => this.setState({ userName })}
+                    onChangeText={pseudo => this.setState({ pseudo })}
                     placeholderTextColor='#FFFFFF'
                 />
 
@@ -33,7 +86,7 @@ class Inscription extends React.Component {
                     placeholderTextColor='#FFFFFF'
                     style={styles.inputBox}
                     underlineColorAndroid="transparent"
-                    onChangeText={userEmail => this.setState({ userEmail })}
+                    onChangeText={email => this.setState({ email })}
                 />
 
                 <TextInput
@@ -42,12 +95,12 @@ class Inscription extends React.Component {
                     secureTextEntry={true}
                     placeholderTextColor='#FFFFFF'
                     underlineColorAndroid="transparent"
-                    onChangeText={userPassword => this.setState({ userPassword })}
+                    onChangeText={mdp => this.setState({ mdp })}
                 />
 
                 <TouchableOpacity
-                    //onPress={this.userRegister}
-                    onPress={() => this.props.navigation.navigate("Profil")}
+                    onPress={this.inscription}
+                    //onPress={() => this.props.navigation.navigate("Profil")}
                     style={styles.submitButton}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>S'inscrire</Text>
                 </TouchableOpacity>
