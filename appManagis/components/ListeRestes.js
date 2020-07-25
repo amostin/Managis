@@ -9,7 +9,8 @@ import {
     View,
     RefreshControl,
     FlatList,
-    SafeAreaView
+    SafeAreaView,
+    AsyncStorage
 } from 'react-native';
 
 
@@ -26,6 +27,58 @@ class ListeRestes extends Component {
             arrayholder: []
         }
     }
+
+
+    //On récupère l'id de l'utilisateur connecté pour ne pas afficher ses annonces car il s'en fou de les voir.
+    componentWillMount() {
+        this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+        var value = await AsyncStorage.getItem('UserId');
+        if (value !== null) {
+            this.setState({ UserId: value });
+        }
+        this.recuperationDonneeAnnonce()
+    }
+
+
+
+
+    //on récupère les données sous forme de tableau qui sont envoyées par le fichier "restes.php" et on les met dans la variable data pour pouvoir les traiter.
+    recuperationDonneeAnnonce = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/listeAnnoncesController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ refreshing: false });
+                this.setState({ data: responseJson });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+
+
+    onRefresh() {
+        //Clear old data of the list
+        this.setState({ data: [] });
+        //Call the Service to get the latest data
+        this.recuperationDonneeAnnonce();
+    }
+
+
 
     render() {
         if (this.state.refreshing) {
@@ -47,14 +100,6 @@ class ListeRestes extends Component {
                             onRefresh={this.onRefresh.bind(this)}
                         />
                     }>
-                    <View style={styles.containerTitre}>
-                        <View style={{ flex: 1 }}>
-                        </View>
-                        <View style={{ flex: 6, justifyContent: 'center' }}>
-                            <Text style={styles.titrePage}>Liste des restes</Text>
-                        </View>
-                    </View>
-
                     <View>
                         <FlatList
                             data={this.state.data}
