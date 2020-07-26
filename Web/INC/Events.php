@@ -223,7 +223,8 @@ class Events
     private function validation()
     {
         $sRequest = '';
-        if (isset($_POST['envoiForm'])) $sRequest = $_POST['envoiForm']; //Recupere le nm du formulaire
+        if (isset($_POST['envoiForm'])) $sRequest = htmlspecialchars($_POST['envoiForm']); //Recupere le nm du formulaire
+        sleep(1); //ralentir bruteforce
         $this->gestionRequetes($sRequest); //On renvoie vers la fonction qui gère les requetes
     }
 
