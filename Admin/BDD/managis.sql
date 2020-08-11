@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS reste (
   quantiteReste int(255) NOT NULL,
   description varchar(255) CHARACTER SET latin1 NOT NULL,
   adresse varchar(255) CHARACTER SET latin1 NOT NULL,
+  image blob,
   PRIMARY KEY (idReste),
   KEY fk_foreign_reste_user (idUser)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -87,9 +88,9 @@ ALTER TABLE reste
 COMMIT;
 
 delimiter / 
-CREATE PROCEDURE ajoutAnnonce (IN idUserr INT, IN nomRestee VARCHAR(255), IN quantiteRestee INT, IN descriptionRestee VARCHAR(255), IN adressee VARCHAR(255))  BEGIN
-insert into reste (idReste, idUser, nomReste, quantiteReste, description, adresse) 
-values (NULL, idUserr,  nomRestee, quantiteRestee,  descriptionRestee, adressee);
+CREATE PROCEDURE ajoutAnnonce (IN idUserr INT, IN nomRestee VARCHAR(255), IN quantiteRestee INT, IN descriptionRestee VARCHAR(255), IN adressee VARCHAR(255), IN image blob)  BEGIN
+insert into reste (idReste, idUser, nomReste, quantiteReste, description, adresse, image) 
+values (NULL, idUserr,  nomRestee, quantiteRestee,  descriptionRestee, adressee, image);
 END; 
 /
 
