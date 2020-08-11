@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
 import {
+    Button,
     Text,
     View,
     StyleSheet,
@@ -21,13 +24,49 @@ class CreationAnnonce extends Component {
             userNomReste: '',
             userQuantiteReste: '',
             userDescriptionReste: '',
-            userAdresse: ''
+            userAdresse: '',
+            image: null
         }
     }
 
     componentDidMount() {
         this._loadInitialState().done();
+        this.getPermissionAsync();
     }
+
+
+    getPermissionAsync = async () => {
+        if (Constants.platform.android) {
+          const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+          if (status !== 'granted') {
+            alert('Sorry, we need camera roll permissions to make this work!');
+          }
+        }
+        if (Constants.platform.ios) {
+          const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+          if (status !== 'granted') {
+            alert('Sorry, we need camera roll permissions to make this work!');
+          }
+        }
+      };
+    
+      _pickImage = async () => {
+        try {
+          let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+          });
+          if (!result.cancelled) {
+            this.setState({ image: result.uri });
+          }
+    
+          console.log(result);
+        } catch (E) {
+          console.log(E);
+        }
+      };
 
     _loadInitialState = async () => {
         var value = await AsyncStorage.getItem('UserId');
@@ -75,6 +114,7 @@ class CreationAnnonce extends Component {
     }
 
     render() {
+        let { image } = this.state;
         return (
             <SafeAreaView>
                 <ScrollView>
@@ -125,6 +165,24 @@ class CreationAnnonce extends Component {
                                 onChangeText={userAdresse => this.setState({ userAdresse })}
                             />
                         </View>
+
+                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <TouchableOpacity
+                                onPress={this._pickImage}
+                                style={styles.submitButton}>
+                                <Text style={{ color: 'white', textAlign: 'center' }}>Choisir une image</Text>
+                            </TouchableOpacity>
+                            {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                        </View>
+
+                        <View style={styles.submitContainer}>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('AjoutImage')}
+                                style={styles.submitButton}>
+                                <Text style={{ color: 'white', textAlign: 'center' }}>test page upload inutile</Text>
+                            </TouchableOpacity>
+                        </View>
+
                         <View style={styles.submitContainer}>
                             <TouchableOpacity
                                 onPress={this.userCreateAnnonce}
