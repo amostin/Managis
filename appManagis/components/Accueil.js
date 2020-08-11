@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, Image, ScrollView } from "react-native";
 
 class Accueil extends React.Component {
     constructor(props) {
@@ -8,44 +8,46 @@ class Accueil extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ScrollView>
+                <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                <Image
-                    source={require('../assets/logo_transparent.png')}
-                    style={styles.logo}
-                />
+                    <Image
+                        source={require('../assets/logo_transparent.png')}
+                        style={styles.logo}
+                    />
 
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Inscription')}>
-                        <Text style={styles.submitButton}>Inscription</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Connexion')}>
-                        <Text style={styles.submitButton}>Connexion</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('CreationAnnonce')}>
-                        <Text style={styles.submitButton}>Créer une Annonce</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('ListeRestes')}>
-                        <Text style={styles.submitButton}>Liste des restes</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.submitContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('DetailsReste')}>
-                        <Text style={styles.submitButton}>Détails des restes</Text>
-                    </TouchableOpacity>
-                </View>
-            </SafeAreaView>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Inscription')}>
+                            <Text style={styles.submitButton}>Inscription</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Connexion')}>
+                            <Text style={styles.submitButton}>Connexion</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('CreationAnnonce')}>
+                            <Text style={styles.submitButton}>Créer une Annonce</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ListeRestes')}>
+                            <Text style={styles.submitButton}>Liste des restes</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('DetailsReste')}>
+                            <Text style={styles.submitButton}>Détails des restes</Text>
+                        </TouchableOpacity>
+                    </View>
+                </SafeAreaView>
+            </ScrollView>
         )
     }
 }
