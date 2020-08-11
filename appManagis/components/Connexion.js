@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, AsyncStorage } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, AsyncStorage, ScrollView  } from "react-native";
 
 class Connexion extends React.Component {
     constructor(props) {
@@ -64,7 +64,7 @@ class Connexion extends React.Component {
 
         //Keyboard.dismiss();
     }
-//pas l'air de servir a grand chose...
+    //pas l'air de servir a grand chose...
     get_Response_Info = (error, result) => {
         if (error) {
             Alert.alert('Error fetching data: ' + error.toString());
@@ -83,42 +83,44 @@ class Connexion extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ScrollView>
+                <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                <Image
-                    source={require('../assets/logo_transparent.png')}
-                    style={styles.logo}
-                />
+                    <Image
+                        source={require('../assets/logo_transparent.png')}
+                        style={styles.logo}
+                    />
 
-                <TextInput
-                    style={styles.inputBox}
-                    placeholder="Pseudo"
-                    underlineColorAndroid="transparent"
-                    onChangeText={UserName => this.setState({ UserName })}
-                    placeholderTextColor='#FFFFFF'
-                />
+                    <TextInput
+                        style={styles.inputBox}
+                        placeholder="Pseudo"
+                        underlineColorAndroid="transparent"
+                        onChangeText={UserName => this.setState({ UserName })}
+                        placeholderTextColor='#FFFFFF'
+                    />
 
-                <TextInput
-                    style={styles.inputBox}
-                    placeholder="Mot de passe"
-                    secureTextEntry={true}
-                    placeholderTextColor='#FFFFFF'
-                    underlineColorAndroid="transparent"
-                    onChangeText={UserPassword => this.setState({ UserPassword })}
-                />
+                    <TextInput
+                        style={styles.inputBox}
+                        placeholder="Mot de passe"
+                        secureTextEntry={true}
+                        placeholderTextColor='#FFFFFF'
+                        underlineColorAndroid="transparent"
+                        onChangeText={UserPassword => this.setState({ UserPassword })}
+                    />
 
-                <TouchableOpacity
-                    onPress={this.login}
-                    //onPress={() => this.props.navigation.navigate("Profil")}
-                    style={styles.submitButton}>
-                    <Text style={{ color: 'white', textAlign: 'center' }}>Se connecter</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={this.login}
+                        //onPress={() => this.props.navigation.navigate("Profil")}
+                        style={styles.submitButton}>
+                        <Text style={{ color: 'white', textAlign: 'center' }}>Se connecter</Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("Inscription")}>
-                    <Text>Pas encore de compte ? Inscrivez vous !</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("Inscription")}>
+                        <Text>Pas encore de compte ? Inscrivez vous !</Text>
+                    </TouchableOpacity>
+                </SafeAreaView>
+            </ScrollView>
         )
     }
 }

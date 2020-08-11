@@ -137,7 +137,7 @@ class dbAccess
         }
         switch ($procName){
             case 'ajoutAnnonce' : 
-                array_push($params, '?', '?', '?', '?', '?');
+                array_push($params, '?', '?', '?', '?', '?', '?');
                 try {
                     $this->connexionBDD();
                     $callProc = 'call '. $procName.'('.join(',', $params).')';

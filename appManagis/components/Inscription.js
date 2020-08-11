@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, ScrollView  } from "react-native";
 
 class Inscription extends React.Component {
     constructor(props) {
@@ -66,50 +66,52 @@ class Inscription extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ScrollView>
+                <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                <Image
-                    source={require('../assets/logo_transparent.png')}
-                    style={styles.logo}
-                />
+                    <Image
+                        source={require('../assets/logo_transparent.png')}
+                        style={styles.logo}
+                    />
 
-                <TextInput
-                    placeholder="Nom"
-                    style={styles.inputBox}
-                    underlineColorAndroid="transparent"
-                    onChangeText={pseudo => this.setState({ pseudo })}
-                    placeholderTextColor='#FFFFFF'
-                />
+                    <TextInput
+                        placeholder="Nom"
+                        style={styles.inputBox}
+                        underlineColorAndroid="transparent"
+                        onChangeText={pseudo => this.setState({ pseudo })}
+                        placeholderTextColor='#FFFFFF'
+                    />
 
-                <TextInput
-                    placeholder="Email"
-                    placeholderTextColor='#FFFFFF'
-                    style={styles.inputBox}
-                    underlineColorAndroid="transparent"
-                    onChangeText={email => this.setState({ email })}
-                />
+                    <TextInput
+                        placeholder="Email"
+                        placeholderTextColor='#FFFFFF'
+                        style={styles.inputBox}
+                        underlineColorAndroid="transparent"
+                        onChangeText={email => this.setState({ email })}
+                    />
 
-                <TextInput
-                    placeholder="Mot de passe"
-                    style={styles.inputBox}
-                    secureTextEntry={true}
-                    placeholderTextColor='#FFFFFF'
-                    underlineColorAndroid="transparent"
-                    onChangeText={mdp => this.setState({ mdp })}
-                />
+                    <TextInput
+                        placeholder="Mot de passe"
+                        style={styles.inputBox}
+                        secureTextEntry={true}
+                        placeholderTextColor='#FFFFFF'
+                        underlineColorAndroid="transparent"
+                        onChangeText={mdp => this.setState({ mdp })}
+                    />
 
-                <TouchableOpacity
-                    onPress={this.inscription}
-                    //onPress={() => this.props.navigation.navigate("Profil")}
-                    style={styles.submitButton}>
-                    <Text style={{ color: 'white', textAlign: 'center' }}>S'inscrire</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={this.inscription}
+                        //onPress={() => this.props.navigation.navigate("Profil")}
+                        style={styles.submitButton}>
+                        <Text style={{ color: 'white', textAlign: 'center' }}>S'inscrire</Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("Connexion")}>
-                    <Text>Vous avez déjà un compte ? Connectez vous !</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("Connexion")}>
+                        <Text>Vous avez déjà un compte ? Connectez vous !</Text>
+                    </TouchableOpacity>
+                </SafeAreaView>
+            </ScrollView>
         )
     }
 }
