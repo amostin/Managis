@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Text, TouchableOpacity, View, StyleSheet, ScrollView, Image, SafeAreaView } from 'react-native'
 
 class DetailsReste extends Component {
-    //reste = this.props.navigation.state.params.reste
+    reste = this.props.route.params.reste
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -22,31 +22,31 @@ class DetailsReste extends Component {
                             <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Nom de l'annonce</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}> nomReste </Text>
+                            <Text style={styles.inputBox}> {this.reste.nomReste} </Text>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Quantité</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}>quantiteReste</Text>
+                            <Text style={styles.inputBox}>{this.reste.quantiteReste}</Text>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Description</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}> description </Text>
+                            <Text style={styles.inputBox}> {this.reste.description} </Text>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Adresse</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}> adresse </Text>
+                            <Text style={styles.inputBox}> {this.reste.adresse} </Text>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Adresse email de l'annonceur</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}> email </Text>
+                            <Text style={styles.inputBox}> {this.reste.email} </Text>
                         </View>
                     </View>
                 </ScrollView>
