@@ -197,6 +197,13 @@ END;
 /
 
 delimiter / 
+CREATE  PROCEDURE creatCompte (IN idUser int)  BEGIN
+select dateCreation from users
+where idUser = users.idUser;
+END; 
+/
+
+delimiter / 
 CREATE  PROCEDURE infoEvent (IN idEvent INT)  BEGIN
 select nomEvent, adresse, dateEvent, heure from evenement
 where idEvent = evenement.idEvent;

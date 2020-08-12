@@ -26,6 +26,34 @@ class Profil extends React.Component {
         this.setState({ UserName: value });
         this.setState({ UserEmail: value2 });
         this.setState({ UserId: value3 });
+        this.recuperationDonneeMembre()
+    }
+
+
+
+
+    //on récupère les données sous forme de tableau qui sont envoyées par le fichier "restes.php" et on les met dans la variable data pour pouvoir les traiter.
+    recuperationDonneeMembre = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/profilController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ membreDepuis: responseJson[0]['0'] });
+                //console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render() {
@@ -75,7 +103,7 @@ class Profil extends React.Component {
                             </View>
                             <View style={{ justifyContent: 'flex-end' }}>
                                 <TouchableOpacity
-                                    onPress={() => this.testAlert()}
+                                    onPress={() => this.recuperationDonneeMembre()}
                                     style={styles.buttonModif}>
                                     <Text style={{ color: 'white' }}>Modifier</Text>
                                 </TouchableOpacity>
