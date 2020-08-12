@@ -11,6 +11,7 @@ import CreationAnnonce from './components/CreationAnnonce';
 import ListeRestes from './components/ListeRestes';
 import DetailsReste from './components/DetailsReste';
 import AjoutImage from './components/AjoutImage';
+import MesAnnonces from './components/MesAnnonces';
 
 
 
@@ -43,6 +44,7 @@ function AccueilStackScreen() {
       <AccueilStack.Screen name="ListeRestes" component={ListeRestes} options={{ title: 'ListeRestes', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
       <AccueilStack.Screen name="DetailsReste" component={DetailsReste} options={{ title: 'DetailsReste', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
       <AccueilStack.Screen name="AjoutImage" component={AjoutImage} options={{ title: 'AjoutImage', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
+      <AccueilStack.Screen name="MesAnnonces" component={MesAnnonces} options={{ title: 'MesAnnonces', headerTintColor: 'white', headerStyle: { backgroundColor: '#6D071A' } }} />
     </AccueilStack.Navigator>
   );
 }
