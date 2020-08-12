@@ -201,6 +201,34 @@ class dbAccess
                 }
                 break;
         }
+        switch ($procName) {
+            case 'getNbRecup':
+                array_push($params, '?');
+                try {
+                    $this->connexionBDD();
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
+                    $request = $this->pdo->prepare($callProc);
+                    $request->execute($procParams);
+                    return $request->fetchAll();
+                } catch (PDOException $e) {
+                    $e->getMessage();
+                }
+                break;
+        }
+        switch ($procName) {
+            case 'getNbDonne':
+                array_push($params, '?');
+                try {
+                    $this->connexionBDD();
+                    $callProc = 'call ' . $procName . '(' . join(',', $params) . ')';
+                    $request = $this->pdo->prepare($callProc);
+                    $request->execute($procParams);
+                    return $request->fetchAll();
+                } catch (PDOException $e) {
+                    $e->getMessage();
+                }
+                break;
+        }
     }
 }
 

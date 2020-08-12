@@ -26,10 +26,56 @@ class Profil extends React.Component {
         this.setState({ UserName: value });
         this.setState({ UserEmail: value2 });
         this.setState({ UserId: value3 });
-        this.recuperationDonneeMembre()
+        this.recuperationDonneeMembre();
+        this.recuperationNbRecup();
+        this.recuperationNbDonne();
     }
 
+    recuperationNbDonne = () => {
 
+        fetch('https://managis.ambroisemostin.com/controller/nbDonneController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ nbRecup: responseJson.length });
+                console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    recuperationNbRecup = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/nbRecupController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ nbDonne: responseJson.length });
+                console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 
 
     //on récupère les données sous forme de tableau qui sont envoyées par le fichier "restes.php" et on les met dans la variable data pour pouvoir les traiter.
