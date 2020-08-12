@@ -8,21 +8,24 @@ class Profil extends React.Component {
             avatarSource: null,
             UserName: [],
             UserEmail: [],
-            UserId: []
+            UserId: [],
+            membreDepuis: 'je cherche ça et je te dit quand j\'ai trouvé',
+            nbRecup: 0,
+            nbDonne: 0
         }
     }
 
     componentDidMount() {
-      this._loadInitialState().done();
+        this._loadInitialState().done();
     }
-  
+
     _loadInitialState = async () => {
-      var value = await AsyncStorage.getItem('UserName');
-      var value2 = await AsyncStorage.getItem('UserEmail');
-      var value3 = await AsyncStorage.getItem('UserId');
-      this.setState({ UserName: value });
-      this.setState({ UserEmail: value2 });
-      this.setState({ UserId: value3 });
+        var value = await AsyncStorage.getItem('UserName');
+        var value2 = await AsyncStorage.getItem('UserEmail');
+        var value3 = await AsyncStorage.getItem('UserId');
+        this.setState({ UserName: value });
+        this.setState({ UserEmail: value2 });
+        this.setState({ UserId: value3 });
     }
 
     render() {
@@ -45,11 +48,18 @@ class Profil extends React.Component {
 
                         <View style={styles.body}>
                             <View style={styles.bodyContent}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
-                                        {this.state.UserEmail}
-                                    </Text>
-                                </View>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Membre depuis: {this.state.membreDepuis}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Nombre d'annonce récupérée: {this.state.nbRecup}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Nombre d'annonce donnée: {this.state.nbDonne}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    {this.state.UserEmail}
+                                </Text>
                             </View>
                         </View>
                         <View style={{ alignItems: 'center' }}>
