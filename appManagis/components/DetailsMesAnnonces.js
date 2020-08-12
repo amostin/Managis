@@ -29,23 +29,20 @@ class DetailsMesAnnonces extends Component {
 
     envoiRecup = () => {
 
-        fetch('https://managis.ambroisemostin.com/controller/recupController.php', {
+        fetch('https://managis.ambroisemostin.com/controller/donneurController.php', {
             method: 'POST',
             header: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                idReceveur: this.state.UserId,
                 idReste: this.props.route.params.reste.idReste
-                //idReceveur: 10,
-                //idReste: 1
             })
 
         })
             .then((response) => response.json())
             .then((responseJson) => {
-                alert('vous aurez +1 quand le donneur aura confirmé la recup');
+                alert('vous aurez +1 quand le receveur aura confirmé la recup');
             })
             .catch((error) => {
                 console.error(error);
@@ -93,12 +90,6 @@ class DetailsMesAnnonces extends Component {
                         </View>
                         <View style={styles.inputContainer}>
                             <Text style={styles.inputBox}> {this.reste.adresse} </Text>
-                        </View>
-                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={{ color: '#3A4750', marginTop: 10, marginBottom: 8 }}>Adresse email de l'annonceur</Text>
-                        </View>
-                        <View style={styles.inputContainer}>
-                            <Text style={styles.inputBox}> {this.reste.email} </Text>
                         </View>
                         <View style={styles.submitContainer}>
                             <TouchableOpacity
