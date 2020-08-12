@@ -1,9 +1,61 @@
 import React, { Component } from 'react'
 
-import { Text, TouchableOpacity, View, StyleSheet, ScrollView, Image, SafeAreaView } from 'react-native'
+import { Text, TouchableOpacity, View, StyleSheet, ScrollView, Image, SafeAreaView, AsyncStorage } from 'react-native'
 
 class DetailsReste extends Component {
+
     reste = this.props.route.params.reste
+
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            UserId: []
+        }
+    }
+
+
+    //On récupère l'id de l'utilisateur connecté pour ne pas afficher ses annonces car il s'en fou de les voir.
+    componentWillMount() {
+        this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+        var value = await AsyncStorage.getItem('UserId');
+        if (value !== null) {
+            this.setState({ UserId: value });
+        }
+    }
+
+    envoiRecup = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/recupController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                idReceveur: this.state.UserId,
+                idReste: this.props.route.params.reste.idReste
+                //idReceveur: 10,
+                //idReste: 1
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                alert('vous aurez +1 quand le donneur aura confirmé la recup');
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+
+    envoiRecupTest = () => {
+        console.log(this.props.route.params.reste);
+    }
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -48,12 +100,12 @@ class DetailsReste extends Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.inputBox}> {this.reste.email} </Text>
                         </View>
-                    <View style={styles.submitContainer}>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('ListeRestes')}>
-                            <Text style={styles.submitButton}>Liste des restes</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <View style={styles.submitContainer}>
+                            <TouchableOpacity
+                                onPress={() => this.envoiRecup()}>
+                                <Text style={styles.submitButton}>confirmer que l'annonce à été récupérée</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
