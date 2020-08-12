@@ -42,8 +42,8 @@ class Accueil extends React.Component {
                     </View>
                     <View style={styles.submitContainer}>
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('DetailsReste')}>
-                            <Text style={styles.submitButton}>Détails des restes</Text>
+                            onPress={() => this.props.navigation.navigate('MesAnnonces')}>
+                            <Text style={styles.submitButton}>Mes Annonces</Text>
                         </TouchableOpacity>
                     </View>
                 </SafeAreaView>

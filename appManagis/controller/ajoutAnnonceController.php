@@ -9,7 +9,6 @@ $nomReste = htmlspecialchars($obj['nomReste']);
 $quantiteReste =  htmlspecialchars($obj['quantiteReste']);
 $descriptionReste = htmlspecialchars($obj['descriptionReste']);
 $adresse = htmlspecialchars($obj['adresse']);
-$image = $obj['image'];
-$ajoutAnnonce = $db->procCall('ajoutAnnonce', [$user,$nomReste, $quantiteReste, $descriptionReste, $adresse, $image]);
+$ajoutAnnonce = $db->procCall('ajoutAnnonce', [$user,$nomReste, $quantiteReste, $descriptionReste, $adresse]);
 //Faites un foreach ou quoi pour pas avoir de problèmes ... je le fais au cas ou
 echo json_encode($ajoutAnnonce); //Decode le en JS
