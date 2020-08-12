@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, ScrollView, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, ScrollView, View, AsyncStorage } from "react-native";
 
 class Profil extends React.Component {
     constructor(props) {
@@ -12,19 +12,23 @@ class Profil extends React.Component {
         }
     }
 
+    componentDidMount() {
+      this._loadInitialState().done();
+    }
+  
+    _loadInitialState = async () => {
+      var value = await AsyncStorage.getItem('UserName');
+      var value2 = await AsyncStorage.getItem('UserEmail');
+      var value3 = await AsyncStorage.getItem('UserId');
+      this.setState({ UserName: value });
+      this.setState({ UserEmail: value2 });
+      this.setState({ UserId: value3 });
+    }
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView style={{ flex: 1 }}>
-                    <View style={styles.containerTitre}>
-                        <View style={{ flex: 1 }}>
-
-                        </View>
-                        <View style={{ flex: 6, justifyContent: 'center' }}>
-                            <Text style={styles.titrePage}>Profil</Text>
-                        </View>
-                    </View>
-                    <View style={styles.header}></View>
                     <View style={styles.container}>
 
                         <View style={styles.header}>
