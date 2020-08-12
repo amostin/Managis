@@ -48,6 +48,12 @@ class DetailsReste extends Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.inputBox}> {this.reste.email} </Text>
                         </View>
+                    <View style={styles.submitContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ListeRestes')}>
+                            <Text style={styles.submitButton}>Liste des restes</Text>
+                        </TouchableOpacity>
+                    </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
