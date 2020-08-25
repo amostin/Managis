@@ -1,1 +1,1 @@
-Le rapport disponible dans le dossier rapport ne permet pas la navigation par les liens donc veuillez suivre ce lien pour accéder à [la version navigable du rapport](https://managis.ambroisemostin.com/Rapport%20Projet%20Int%C3%A9gration%202de%20session.pdf)
+Le fichier pdf disponible dans le dossier "rapport" ne permet pas la navigation par les liens donc veuillez suivre ce lien pour accéder à [la version navigable du rapport](https://managis.ambroisemostin.com/Rapport%20Projet%20Int%C3%A9gration%202de%20session.pdf).
