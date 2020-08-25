@@ -107,7 +107,7 @@ class ListeRestes extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.container}>
                                     <TouchableOpacity
-                                        onPress={() => this.props.navigation.navigate("ResteItem", { reste: item })}
+                                        onPress={() => this.props.navigation.navigate("DetailsReste", { reste: item })}
                                         style={styles.event}>
                                         <View style={{ flex: 1 }}>
                                             <View style={styles.header}>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, ScrollView, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SafeAreaView, TextInput, Image, ScrollView, View, AsyncStorage } from "react-native";
 
 class Profil extends React.Component {
     constructor(props) {
@@ -8,23 +8,104 @@ class Profil extends React.Component {
             avatarSource: null,
             UserName: [],
             UserEmail: [],
-            UserId: []
+            UserId: [],
+            membreDepuis: 'je cherche ça et je te dit quand j\'ai trouvé',
+            nbRecup: 0,
+            nbDonne: 0
         }
+    }
+
+    componentDidMount() {
+        this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+        var value = await AsyncStorage.getItem('UserName');
+        var value2 = await AsyncStorage.getItem('UserEmail');
+        var value3 = await AsyncStorage.getItem('UserId');
+        this.setState({ UserName: value });
+        this.setState({ UserEmail: value2 });
+        this.setState({ UserId: value3 });
+        this.recuperationDonneeMembre();
+        this.recuperationNbRecup();
+        this.recuperationNbDonne();
+    }
+
+    recuperationNbDonne = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/nbDonneController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ nbRecup: responseJson.length });
+                console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    recuperationNbRecup = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/nbRecupController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ nbDonne: responseJson.length });
+                console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+
+    //on récupère les données sous forme de tableau qui sont envoyées par le fichier "restes.php" et on les met dans la variable data pour pouvoir les traiter.
+    recuperationDonneeMembre = () => {
+
+        fetch('https://managis.ambroisemostin.com/controller/profilController.php', {
+            method: 'POST',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: this.state.UserId,
+            })
+
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ membreDepuis: responseJson[0]['0'] });
+                //console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView style={{ flex: 1 }}>
-                    <View style={styles.containerTitre}>
-                        <View style={{ flex: 1 }}>
-
-                        </View>
-                        <View style={{ flex: 6, justifyContent: 'center' }}>
-                            <Text style={styles.titrePage}>Profil</Text>
-                        </View>
-                    </View>
-                    <View style={styles.header}></View>
                     <View style={styles.container}>
 
                         <View style={styles.header}>
@@ -41,11 +122,18 @@ class Profil extends React.Component {
 
                         <View style={styles.body}>
                             <View style={styles.bodyContent}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
-                                        {this.state.UserEmail}
-                                    </Text>
-                                </View>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Membre depuis: {this.state.membreDepuis}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Nombre d'annonce récupérée: {this.state.nbRecup}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    Nombre d'annonce donnée: {this.state.nbDonne}
+                                </Text>
+                                <Text style={{ fontSize: 22, color: "black", marginLeft: 5 }}>
+                                    {this.state.UserEmail}
+                                </Text>
                             </View>
                         </View>
                         <View style={{ alignItems: 'center' }}>
@@ -61,7 +149,7 @@ class Profil extends React.Component {
                             </View>
                             <View style={{ justifyContent: 'flex-end' }}>
                                 <TouchableOpacity
-                                    onPress={() => this.testAlert()}
+                                    onPress={() => this.recuperationDonneeMembre()}
                                     style={styles.buttonModif}>
                                     <Text style={{ color: 'white' }}>Modifier</Text>
                                 </TouchableOpacity>
